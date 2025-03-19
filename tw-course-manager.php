@@ -33,31 +33,32 @@ register_deactivation_hook( __FILE__, 'tw_course_manager_deactivate' );
 
 // Adicionar menu no painel administrativo
 function tw_course_manager_admin_menu() {
-    add_menu_page(
-        'Import. de Cursos',
-        'Import. de Cursos',
-        'manage_options',
-        'tw-course-manager',
-        'tw_course_manager_admin_page',
-        'dashicons-welcome-learn-more',
-        30
+    add_submenu_page(
+        'edit.php?post_type=courses', // Parent slug (menu Cursos)
+        'Importador de Cursos',       // Título da página
+        'Importador',                 // Título do menu
+        'manage_options',             // Capacidade necessária
+        'tw-course-manager',          // Slug do menu
+        'tw_course_manager_admin_page' // Função de callback
+        
     );
 }
-add_action( 'admin_menu', 'tw_course_manager_admin_menu' );
+add_action('admin_menu', 'tw_course_manager_admin_menu');
 
 // Carregar scripts e estilos no admin
-function tw_course_manager_admin_scripts( $hook ) {
-    if ( 'toplevel_page_tw-course-manager' !== $hook ) {
+function tw_course_manager_admin_scripts($hook) {
+    // Atualiza a verificação do hook para o novo submenu
+    if ('courses_page_tw-course-manager' !== $hook) {
         return;
     }
 
-    wp_enqueue_style( 'tw-course-manager-admin', TW_COURSE_MANAGER_URL . 'assets/css/admin.css', array(), TW_COURSE_MANAGER_VERSION );
-    wp_enqueue_script( 'tw-course-manager-admin', TW_COURSE_MANAGER_URL . 'assets/js/admin.js', array( 'jquery' ), TW_COURSE_MANAGER_VERSION, true );
+    wp_enqueue_style('tw-course-manager-admin', TW_COURSE_MANAGER_URL . 'assets/css/admin.css', array(), TW_COURSE_MANAGER_VERSION);
+    wp_enqueue_script('tw-course-manager-admin', TW_COURSE_MANAGER_URL . 'assets/js/admin.js', array('jquery'), TW_COURSE_MANAGER_VERSION, true);
 
     // Adicionar dados para o Ajax
-    wp_localize_script( 'tw-course-manager-admin', 'twCourseManager', array(
-        'ajax_url' => admin_url( 'admin-ajax.php' ),
-        'nonce' => wp_create_nonce( 'tw_course_manager_nonce' ),
+    wp_localize_script('tw-course-manager-admin', 'twCourseManager', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('tw_course_manager_nonce'),
         'importing_text' => 'Importando curso {current} de {total}...',
         'complete_text' => 'Importação concluída! {total} cursos importados.'
     ));
@@ -167,7 +168,7 @@ function tw_course_manager_import_course() {
         'post_title'    => sanitize_text_field( $course_data['title'] ),
         'post_content'  => wp_kses_post( $course_data['description'] ?? '' ),
         'post_status'   => 'publish',
-        'post_type'     => 'post', // Você pode criar um post_type personalizado para cursos
+        'post_type'     => 'courses',
     );
     
     $post_id = wp_insert_post( $post_data );
@@ -205,3 +206,4 @@ add_action( 'wp_ajax_tw_course_manager_import_course', 'tw_course_manager_import
 
 // Incluir arquivos adicionais
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-api-handler.php';
+require_once TW_COURSE_MANAGER_PATH . 'includes/class-cpt-handler.php';

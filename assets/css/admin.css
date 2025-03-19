@@ -1,0 +1,76 @@
+.tw-course-manager-container {
+    margin-top: 20px;
+}
+
+.tw-course-manager-card {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 800px;
+}
+
+.courses-container {
+    margin: 15px 0;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.course-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.course-item:last-child {
+    border-bottom: none;
+}
+
+.course-item label {
+    margin-left: 10px;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #0073aa;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.results-container {
+    margin-top: 10px;
+}
+
+.import-result-item {
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #46b450;
+}
+
+.import-result-item.error {
+    border-left-color: #dc3232;
+}
+
+.import-result-item a {
+    margin-left: 5px;
+} 

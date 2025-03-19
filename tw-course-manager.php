@@ -34,8 +34,8 @@ register_deactivation_hook( __FILE__, 'tw_course_manager_deactivate' );
 // Adicionar menu no painel administrativo
 function tw_course_manager_admin_menu() {
     add_menu_page(
-        'Gerenciador de Cursos',
-        'Gerenciador de Cursos',
+        'Import. de Cursos',
+        'Import. de Cursos',
         'manage_options',
         'tw-course-manager',
         'tw_course_manager_admin_page',
@@ -73,15 +73,9 @@ function tw_course_manager_admin_page() {
         <div class="tw-course-manager-container">
             <div class="tw-course-manager-card">
                 <h2>Importação de Cursos da API</h2>
-                <p>Clique no botão abaixo para buscar cursos da API e importá-los para o site.</p>
+                <p>Clique no botão abaixo para buscar e importar cursos da API para o site.</p>
                 
-                <button id="tw-fetch-courses" class="button button-primary">Buscar Cursos da API</button>
-                
-                <div id="tw-course-list" style="display: none; margin-top: 20px;">
-                    <h3>Cursos Disponíveis</h3>
-                    <div class="courses-container"></div>
-                    <button id="tw-import-selected" class="button button-primary" style="margin-top: 10px;">Importar Selecionados</button>
-                </div>
+                <button id="tw-fetch-courses" class="button button-primary">Importar Cursos da API</button>
                 
                 <div id="tw-import-progress" style="display: none; margin-top: 20px;">
                     <h3>Progresso da Importação</h3>

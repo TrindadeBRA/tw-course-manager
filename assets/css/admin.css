@@ -1,13 +1,12 @@
 .tw-course-manager-container {
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 .tw-course-manager-card {
     background: #fff;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     padding: 20px;
-    max-width: 800px;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
 }
 
 .courses-container {
@@ -19,10 +18,10 @@
 }
 
 .course-item {
+    margin: 10px 0;
     padding: 10px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
 }
 
 .course-item:last-child {
@@ -38,16 +37,15 @@
 .progress-bar-container {
     width: 100%;
     height: 20px;
-    background-color: #f1f1f1;
-    border-radius: 4px;
-    margin: 10px 0;
+    background: #f1f1f1;
+    border-radius: 3px;
     overflow: hidden;
 }
 
 .progress-bar {
+    width: 0;
     height: 100%;
-    background-color: #0073aa;
-    width: 0%;
+    background: #0073aa;
     transition: width 0.3s ease;
 }
 
@@ -60,17 +58,16 @@
     margin-top: 10px;
 }
 
-.import-result-item {
-    padding: 8px;
-    margin-bottom: 5px;
-    background-color: #f9f9f9;
+.import-result {
+    margin: 10px 0;
+    padding: 10px;
     border-left: 4px solid #46b450;
 }
 
-.import-result-item.error {
+.import-result.error {
     border-left-color: #dc3232;
 }
 
-.import-result-item a {
-    margin-left: 5px;
+.import-result a {
+    margin-left: 10px;
 } 

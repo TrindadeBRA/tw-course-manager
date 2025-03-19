@@ -1,10 +1,10 @@
 jQuery(document).ready(function($) {
     let courses = [];
     
-    // Buscar cursos da API
+    // Buscar cursos
     $('#tw-fetch-courses').on('click', function() {
-        const $button = $(this);
-        $button.prop('disabled', true).text('Buscando cursos...');
+        var button = $(this);
+        button.prop('disabled', true);
         
         $.ajax({
             url: twCourseManager.ajax_url,
@@ -14,37 +14,33 @@ jQuery(document).ready(function($) {
                 nonce: twCourseManager.nonce
             },
             success: function(response) {
-                $button.prop('disabled', false).text('Buscar Cursos da API');
-                
-                if (response.success && response.data.courses) {
-                    courses = response.data.courses;
-                    displayCourses(courses);
+                if (response.success) {
+                    startImport(response.data.courses.courses);
                 } else {
-                    alert(response.data.message || 'Erro ao buscar cursos.');
+                    alert('Erro ao buscar cursos: ' + response.data.message);
                 }
             },
             error: function() {
-                $button.prop('disabled', false).text('Buscar Cursos da API');
-                alert('Erro na requisição. Tente novamente.');
+                alert('Erro na requisição AJAX');
+            },
+            complete: function() {
+                button.prop('disabled', false);
             }
         });
     });
     
-    // Exibir cursos na interface
+    // Exibir cursos na lista
     function displayCourses(courses) {
-        const $container = $('#tw-course-list .courses-container');
-        $container.empty();
+        var container = $('.courses-container');
+        container.empty();
         
-        if (courses.length === 0) {
-            $container.html('<p>Nenhum curso encontrado.</p>');
-            return;
-        }
-        
-        courses.forEach(function(course, index) {
-            $container.append(`
+        courses.forEach(function(course) {
+            container.append(`
                 <div class="course-item">
-                    <input type="checkbox" id="course-${index}" class="course-checkbox" data-index="${index}">
-                    <label for="course-${index}">${course.title}</label>
+                    <label>
+                        <input type="checkbox" name="course[]" value="${course.id}" data-course='${JSON.stringify(course)}'>
+                        ${course.title}
+                    </label>
                 </div>
             `);
         });
@@ -52,112 +48,80 @@ jQuery(document).ready(function($) {
         $('#tw-course-list').show();
     }
     
-    // Importar cursos selecionados
-    $('#tw-import-selected').on('click', function() {
-        const selectedIndices = [];
+    // Iniciar importação automaticamente
+    function startImport(courses) {
+        var totalCourses = courses.length;
+        var currentCourse = 0;
         
-        $('.course-checkbox:checked').each(function() {
-            selectedIndices.push($(this).data('index'));
-        });
+        $('#tw-import-progress').show();
+        updateProgress(currentCourse, totalCourses);
         
-        if (selectedIndices.length === 0) {
-            alert('Selecione pelo menos um curso para importar.');
-            return;
-        }
-        
-        const selectedCourses = selectedIndices.map(index => courses[index]);
-        startImport(selectedCourses);
-    });
-    
-    // Iniciar processo de importação
-    function startImport(coursesToImport) {
-        const $progressSection = $('#tw-import-progress');
-        const $progressBar = $progressSection.find('.progress-bar');
-        const $progressText = $progressSection.find('.progress-text');
-        const $resultsContainer = $('#tw-import-results .results-container');
-        
-        // Resetar e mostrar seção de progresso
-        $progressBar.css('width', '0%');
-        $progressText.text(`0 de ${coursesToImport.length} cursos importados`);
-        $progressSection.show();
-        
-        $('#tw-import-results').hide();
-        $resultsContainer.empty();
-        
-        // Importar cursos sequencialmente
-        importCoursesSequentially(coursesToImport, 0, $progressBar, $progressText, $resultsContainer);
-    }
-    
-    // Importar cursos um por um
-    function importCoursesSequentially(courses, currentIndex, $progressBar, $progressText, $resultsContainer) {
-        if (currentIndex >= courses.length) {
-            // Importação concluída
-            $('#tw-import-results').show();
-            return;
-        }
-        
-        const course = courses[currentIndex];
-        const progress = Math.floor((currentIndex / courses.length) * 100);
-        
-        // Atualizar barra de progresso
-        $progressBar.css('width', progress + '%');
-        $progressText.text(
-            twCourseManager.importing_text
-                .replace('{current}', currentIndex + 1)
-                .replace('{total}', courses.length)
-        );
-        
-        // Fazer requisição para importar o curso atual
-        $.ajax({
-            url: twCourseManager.ajax_url,
-            type: 'POST',
-            data: {
-                action: 'tw_course_manager_import_course',
-                nonce: twCourseManager.nonce,
-                course_data: JSON.stringify(course)
-            },
-            success: function(response) {
-                // Adicionar resultado à lista
-                if (response.success) {
-                    $resultsContainer.append(`
-                        <div class="import-result-item">
-                            ✅ ${course.title} - Importado com sucesso
-                            <a href="${response.data.edit_link}" target="_blank">Editar</a>
-                        </div>
-                    `);
-                } else {
-                    $resultsContainer.append(`
-                        <div class="import-result-item error">
-                            ❌ ${course.title} - Erro: ${response.data.message}
-                        </div>
-                    `);
-                }
-                
-                // Continuar com o próximo curso
-                importCoursesSequentially(
-                    courses, 
-                    currentIndex + 1, 
-                    $progressBar, 
-                    $progressText, 
-                    $resultsContainer
+        function importNextCourse() {
+            if (currentCourse >= courses.length) {
+                $('#tw-import-progress .progress-text').text(
+                    twCourseManager.complete_text.replace('{total}', totalCourses)
                 );
-            },
-            error: function() {
-                $resultsContainer.append(`
-                    <div class="import-result-item error">
-                        ❌ ${course.title} - Erro na requisição
-                    </div>
-                `);
-                
-                // Continuar com o próximo curso mesmo após erro
-                importCoursesSequentially(
-                    courses, 
-                    currentIndex + 1, 
-                    $progressBar, 
-                    $progressText, 
-                    $resultsContainer
-                );
+                return;
             }
-        });
+            
+            var courseData = courses[currentCourse];
+            
+            $.ajax({
+                url: twCourseManager.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'tw_course_manager_import_course',
+                    nonce: twCourseManager.nonce,
+                    course_data: JSON.stringify(courseData)
+                },
+                success: function(response) {
+                    if (response.success) {
+                        addImportResult(response.data);
+                    } else {
+                        addImportResult({
+                            message: 'Erro ao importar ' + courseData.title + ': ' + response.data.message,
+                            error: true
+                        });
+                    }
+                },
+                error: function() {
+                    addImportResult({
+                        message: 'Erro na requisição AJAX ao importar ' + courseData.title,
+                        error: true
+                    });
+                },
+                complete: function() {
+                    currentCourse++;
+                    updateProgress(currentCourse, totalCourses);
+                    importNextCourse();
+                }
+            });
+        }
+        
+        importNextCourse();
+    }
+
+    // Atualizar barra de progresso
+    function updateProgress(current, total) {
+        var percentage = (current / total) * 100;
+        $('.progress-bar').css('width', percentage + '%');
+        $('.progress-text').text(
+            twCourseManager.importing_text
+                .replace('{current}', current)
+                .replace('{total}', total)
+        );
+    }
+
+    // Adicionar resultado da importação
+    function addImportResult(result) {
+        var resultsContainer = $('#tw-import-results');
+        var resultHtml = `
+            <div class="import-result ${result.error ? 'error' : 'success'}">
+                ${result.message}
+                ${result.edit_link ? `<a href="${result.edit_link}" target="_blank">Editar post</a>` : ''}
+            </div>
+        `;
+        
+        resultsContainer.show().find('.results-container').append(resultHtml);
     }
 }); 

@@ -46,11 +46,11 @@
         }
 
         button.owl-prev {
-            left: -5px;
+            left: 20px;
         }
 
         button.owl-next {
-            right: -5px;
+            right: 20px;
         }
     }
 }

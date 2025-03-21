@@ -70,6 +70,39 @@ class TW_Course_API_Handler {
                     'updated_at' => '2025-03-18 11:53:40',
                     'deleted' => 0
                 ),
+                array(
+                    'id' => 30,
+                    'nomeCurso' => 'Musculação',
+                    'base_course_jacad_id' => 335,
+                    'level' => 'grd_bch',
+                    'kind' => 'ead',
+                    'modalidade' => 'PÓS-GRADUAÇÃO EAD',
+                    'tempoConclusao' => '8 semestres',
+                    'sobreCurso' => '<p>O curso de Nutrição visa formar profissionais com conhecimento em alimentação saudável, prevenção e tratamentos alimentares, atuando em diversas áreas da saúde e bem-estar.</p>',
+                    'mercadoTrabalho' => '<p>O nutricionista pode atuar em hospitais, clínicas, academias, restaurantes, escolas e empresas de alimentos, além de poder abrir consultórios próprios.</p>',
+                    'accordion_MatCur' => array(
+                        array('title' => 'Item 1', 'content' => 'Conteúdo do item 1'),
+                        array('title' => 'Item 2', 'content' => 'Conteúdo do item 2')
+                    ),
+                    'competenciasHabilidades' => array(
+                        'Planejamento de dietas e cardápios',
+                        'Avaliação nutricional',
+                        'Promoção da saúde alimentar'
+                    ),
+                    'imagem' => 'https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/kde-neon-a-distribuicao-linux-com-um-desktop-dinamico-e-elegante_crawlerx_ZARrUJtVC5Pu-1_watermarked_1741472945-768x768.png',
+                    'portariaCursoMec' => 'link-portaria',
+                    'linkInscricao' => 'link-Inscrição',
+                    'precoDe' => 'R$ 70.000,00',
+                    'precoPor' => 'R$ 35.000,00',
+                    'score' => 627,
+                    'org_id' => 0,
+                    'area' => 'Saúde',
+                    'created_at' => '2024-09-12 13:36:52',
+                    'updated_at' => '2025-03-18 11:53:40',
+                    'deleted' => 0
+                ),
+                    
+                
                 // Adicione mais cursos aqui seguindo o mesmo padrão
             )
         );

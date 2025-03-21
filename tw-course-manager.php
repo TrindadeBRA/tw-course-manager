@@ -122,36 +122,52 @@ add_action( 'wp_ajax_tw_course_manager_fetch_courses', 'tw_course_manager_fetch_
 
 // Função para importar um curso (endpoint Ajax)
 function tw_course_manager_import_course() {
-    // Verificar nonce para segurança
-    check_ajax_referer( 'tw_course_manager_nonce', 'nonce' );
+    check_ajax_referer('tw_course_manager_nonce', 'nonce');
     
-    // Verificar permissões
-    if ( ! current_user_can( 'manage_options' ) ) {
-        wp_send_json_error( array( 'message' => 'Permissão negada.' ) );
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error(array('message' => 'Permissão negada.'));
     }
     
-    // Obter dados do curso
-    $course_data = isset( $_POST['course_data'] ) ? json_decode( stripslashes( $_POST['course_data'] ), true ) : null;
+    $course_data = isset($_POST['course_data']) ? json_decode(stripslashes($_POST['course_data']), true) : null;
     
-    if ( ! $course_data ) {
-        wp_send_json_error( array( 'message' => 'Dados do curso não fornecidos ou inválidos.' ) );
+    if (!$course_data) {
+        wp_send_json_error(array('message' => 'Dados do curso não fornecidos ou inválidos.'));
     }
-    
-    // Criar post do curso
-    $post_data = array(
-        'post_title'    => sanitize_text_field( $course_data['nomeCurso'] ),
-        'post_content'  => wp_kses_post( $course_data['sobreCurso'] ?? '' ),
-        'post_status'   => 'publish',
-        'post_type'     => 'courses',
-    );
-    
-    $post_id = wp_insert_post( $post_data );
-    
-    if ( is_wp_error( $post_id ) ) {
-        wp_send_json_error( array( 'message' => 'Erro ao criar post: ' . $post_id->get_error_message() ) );
+
+    // Verifica se já existe um post com o original_id
+    $existing_posts = get_posts(array(
+        'post_type' => 'courses',
+        'meta_key' => 'original_id',
+        'meta_value' => $course_data['id'],
+        'posts_per_page' => 1
+    ));
+
+    if (!empty($existing_posts)) {
+        // Atualiza o post existente
+        $post_id = $existing_posts[0]->ID;
+        $post_data = array(
+            'ID' => $post_id,
+            'post_title' => sanitize_text_field($course_data['nomeCurso']),
+            'post_content' => wp_kses_post($course_data['sobreCurso'] ?? ''),
+            'post_status' => 'publish',
+        );
+        wp_update_post($post_data);
+    } else {
+        // Cria um novo post
+        $post_data = array(
+            'post_title' => sanitize_text_field($course_data['nomeCurso']),
+            'post_content' => wp_kses_post($course_data['sobreCurso'] ?? ''),
+            'post_status' => 'publish',
+            'post_type' => 'courses',
+        );
+        $post_id = wp_insert_post($post_data);
     }
-    
-    // Adicionar campos personalizados (SCF)
+
+    if (is_wp_error($post_id)) {
+        wp_send_json_error(array('message' => 'Erro ao criar/atualizar post: ' . $post_id->get_error_message()));
+    }
+
+    // Adiciona campos personalizados (SCF)
     if (function_exists('update_field')) {
         // Primeiro, vamos tratar a imagem
         $image_url = $course_data['imagem'];
@@ -181,7 +197,7 @@ function tw_course_manager_import_course() {
         update_field('score', $course_data['score'], $post_id);
         update_field('org_id', $course_data['org_id'], $post_id);
         update_field('area', $course_data['area'], $post_id);
-
+        update_field('original_id', $course_data['id'], $post_id);
         // Campos flexíveis (repeater)
         // Matriz Curricular
         $course_materials = $course_data['accordion_MatCur'];
@@ -211,12 +227,14 @@ function tw_course_manager_import_course() {
         wp_send_json_error(array('message' => 'ACF não está ativo. Por favor, ative o plugin Advanced Custom Fields.'));
     }
     
-    // Retornar sucesso
-    wp_send_json_success( array( 
-        'message' => 'Curso importado com sucesso!',
+    // Retorna sucesso com informação se foi criado ou atualizado
+    $action = !empty($existing_posts) ? 'atualizado' : 'criado';
+    wp_send_json_success(array(
+        'message' => "Curso {$action} com sucesso!",
         'post_id' => $post_id,
-        'post_title' => get_the_title( $post_id ),
-        'edit_link' => get_edit_post_link( $post_id, 'raw' )
+        'post_title' => get_the_title($post_id),
+        'edit_link' => get_edit_post_link($post_id, 'raw'),
+        'action' => $action
     ));
 }
 add_action( 'wp_ajax_tw_course_manager_import_course', 'tw_course_manager_import_course' );

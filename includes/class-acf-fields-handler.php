@@ -155,6 +155,12 @@ class TW_Course_ACF_Fields_Handler {
                     'name' => 'area',
                     'type' => 'text',
                 ),
+                array(
+                    'key' => 'original_id',
+                    'label' => 'ID Original',
+                    'name' => 'original_id',
+                    'type' => 'text',
+                ),
             ),
             'location' => array(
                 array(

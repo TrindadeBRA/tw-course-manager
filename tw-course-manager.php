@@ -167,6 +167,24 @@ function tw_course_manager_import_course() {
         wp_send_json_error(array('message' => 'Erro ao criar/atualizar post: ' . $post_id->get_error_message()));
     }
 
+    // Adiciona ou atualiza o termo da taxonomia para a modalidade
+    if (!empty($course_data['modalidade'])) {
+        $modalidade = sanitize_text_field($course_data['modalidade']);
+        
+        // Verifica se o termo já existe
+        $term = term_exists($modalidade, 'types');
+        
+        if (!$term) {
+            // Cria novo termo se não existir
+            $term = wp_insert_term($modalidade, 'types');
+        }
+        
+        if (!is_wp_error($term)) {
+            // Associa o termo ao post
+            wp_set_object_terms($post_id, (int)$term['term_id'], 'types');
+        }
+    }
+
     // Adiciona campos personalizados (SCF)
     if (function_exists('update_field')) {
         // Primeiro, vamos tratar a imagem

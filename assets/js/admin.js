@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
             },
             success: function(response) {
                 if (response.success) {
-                    startImport(response.data.courses.courses);
+                    startImport(response.data.courses.data);
                 } else {
                     alert('Erro ao buscar cursos: ' + response.data.message);
                 }

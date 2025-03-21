@@ -22,7 +22,8 @@ class TW_Course_API_Handler {
      */
     public function get_all_courses() {
         // $response = wp_remote_get( $this->api_url );
-        $response = wp_remote_get( 'https://lucastrindade.dev/wp-json/wp/v2/courses' );
+
+
         
         if ( is_wp_error( $response ) ) {
             return array(
@@ -32,7 +33,46 @@ class TW_Course_API_Handler {
         }
         
         $body = wp_remote_retrieve_body( $response );
-        $data = json_decode( $body, true );
+        // $data = json_decode( $body, true );  
+
+
+        $data = array(
+            'success' => true,
+            'data' => array(
+                array(
+                    'id' => 29,
+                    'nomeCurso' => 'Nutrição',
+                    'base_course_jacad_id' => 35,
+                    'level' => 'grd_bch',
+                    'kind' => 'ead',
+                    'modalidade' => 'GRADUAÇÃO EAD',
+                    'tempoConclusao' => '8 semestres',
+                    'sobreCurso' => '<p>O curso de Nutrição visa formar profissionais com conhecimento em alimentação saudável, prevenção e tratamentos alimentares, atuando em diversas áreas da saúde e bem-estar.</p>',
+                    'mercadoTrabalho' => '<p>O nutricionista pode atuar em hospitais, clínicas, academias, restaurantes, escolas e empresas de alimentos, além de poder abrir consultórios próprios.</p>',
+                    'accordion_MatCur' => array(
+                        array('title' => 'Item 1', 'content' => 'Conteúdo do item 1'),
+                        array('title' => 'Item 2', 'content' => 'Conteúdo do item 2')
+                    ),
+                    'competenciasHabilidades' => array(
+                        'Planejamento de dietas e cardápios',
+                        'Avaliação nutricional',
+                        'Promoção da saúde alimentar'
+                    ),
+                    'imagem' => 'link-imagem-curso',
+                    'portariaCursoMec' => 'link-portaria',
+                    'linkInscricao' => 'link-Inscrição',
+                    'precoDe' => 'R$ 70.000,00',
+                    'precoPor' => 'R$ 35.000,00',
+                    'score' => 627,
+                    'org_id' => 0,
+                    'area' => 'Saúde',
+                    'created_at' => '2024-09-12 13:36:52',
+                    'updated_at' => '2025-03-18 11:53:40',
+                    'deleted' => 0
+                ),
+                // Adicione mais cursos aqui seguindo o mesmo padrão
+            )
+        );
         
         if ( ! $data || empty( $data ) ) {
             return array(
@@ -77,25 +117,4 @@ class TW_Course_API_Handler {
         );
     }
     
-    /**
-     * Processa e normaliza os dados do curso antes da importação
-     */
-    public function prepare_course_for_import( $course_data ) {
-        // Adapte este método conforme a estrutura específica da sua API
-        $prepared_data = array(
-            'title' => isset( $course_data['title'] ) ? sanitize_text_field( $course_data['title'] ) : '',
-            'description' => isset( $course_data['description'] ) ? wp_kses_post( $course_data['description'] ) : '',
-        );
-        
-        // Mapear outros campos relevantes
-        $custom_fields = array( 'instructor', 'duration', 'price', 'level', 'category' );
-        
-        foreach ( $custom_fields as $field ) {
-            if ( isset( $course_data[$field] ) ) {
-                $prepared_data[$field] = sanitize_text_field( $course_data[$field] );
-            }
-        }
-        
-        return $prepared_data;
-    }
 } 

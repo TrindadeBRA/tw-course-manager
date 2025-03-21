@@ -106,43 +106,17 @@ function tw_course_manager_fetch_courses() {
         wp_send_json_error( array( 'message' => 'Permissão negada.' ) );
     }
     
-    // URL da API (substitua pela URL real)
-    $api_url = 'https://sua-api.com/cursos';
+    // Instanciar a classe API Handler
+    $api_handler = new TW_Course_API_Handler();
     
-    // Fazer requisição à API
-    // $response = wp_remote_get( $api_url ); // Chamada real da API
-
-    // Chamada de teste (substitua pela função de teste que você criou)
-    $response = array(
-        'response' => array('code' => 200),
-        'body' => json_encode(array(
-            'success' => true,
-            'courses' => array(
-                array('id' => 1, 'title' => 'Curso 1', 'description' => 'Descrição do Curso 1'),
-                array('id' => 2, 'title' => 'Curso 2', 'description' => 'Descrição do Curso 2'),
-                array('id' => 3, 'title' => 'Curso 3', 'description' => 'Descrição do Curso 3'),
-                array('id' => 4, 'title' => 'Curso 4', 'description' => 'Descrição do Curso 4'),
-                array('id' => 5, 'title' => 'Curso 5', 'description' => 'Descrição do Curso 5'),
-            )
-        )),
-    );
-
-    // Verificar se houve erro na requisição
-    if ( is_wp_error( $response ) ) {
-        wp_send_json_error( array( 'message' => 'Erro ao conectar com a API: ' . $response->get_error_message() ) );
+    // Usar o método get_all_courses()
+    $result = $api_handler->get_all_courses();
+    
+    if ($result['success']) {
+        wp_send_json_success(array('courses' => $result['courses']));
+    } else {
+        wp_send_json_error(array('message' => $result['message']));
     }
-    
-    // Obter corpo da resposta
-    $body = wp_remote_retrieve_body( $response );
-    $data = json_decode( $body, true );
-    
-    // Verificar se os dados foram recebidos corretamente
-    if ( ! $data || empty( $data ) ) {
-        wp_send_json_error( array( 'message' => 'Nenhum curso encontrado ou erro ao processar dados da API.' ) );
-    }
-    
-    // Retornar dados dos cursos
-    wp_send_json_success( array( 'courses' => $data ) );
 }
 add_action( 'wp_ajax_tw_course_manager_fetch_courses', 'tw_course_manager_fetch_courses' );
 
@@ -165,8 +139,8 @@ function tw_course_manager_import_course() {
     
     // Criar post do curso
     $post_data = array(
-        'post_title'    => sanitize_text_field( $course_data['title'] ),
-        'post_content'  => wp_kses_post( $course_data['description'] ?? '' ),
+        'post_title'    => sanitize_text_field( $course_data['nomeCurso'] ),
+        'post_content'  => wp_kses_post( $course_data['sobreCurso'] ?? '' ),
         'post_status'   => 'publish',
         'post_type'     => 'courses',
     );
@@ -178,20 +152,52 @@ function tw_course_manager_import_course() {
     }
     
     // Adicionar campos personalizados (SCF)
-    // Nota: Adapte isso de acordo com o plugin de campos personalizados que você está usando
-    if ( function_exists( 'update_field' ) ) { // Para ACF
-        foreach ( $course_data as $key => $value ) {
-            if ( $key !== 'title' && $key !== 'description' ) {
-                update_field( $key, $value, $post_id );
+    if (function_exists('update_field')) {
+        // Campos de texto simples
+        update_field('course_name', $course_data['nomeCurso'], $post_id);
+        update_field('base_course_jacad_id', $course_data['base_course_jacad_id'], $post_id);
+        update_field('level', $course_data['level'], $post_id);
+        update_field('kind', $course_data['kind'], $post_id);
+        update_field('modality', $course_data['modalidade'], $post_id);
+        update_field('completion_time', $course_data['tempoConclusao'], $post_id);
+        update_field('about_course', $course_data['sobreCurso'], $post_id);
+        update_field('job_market', $course_data['mercadoTrabalho'], $post_id);
+        update_field('course_image', $course_data['imagem'], $post_id);
+        update_field('mec_ordinance', $course_data['portariaCursoMec'], $post_id);
+        update_field('enrollment_link', $course_data['linkInscricao'], $post_id);
+        update_field('price_from', $course_data['precoDe'], $post_id);
+        update_field('price_to', $course_data['precoPor'], $post_id);
+        update_field('score', $course_data['score'], $post_id);
+        update_field('org_id', $course_data['org_id'], $post_id);
+        update_field('area', $course_data['area'], $post_id);
+
+        // Campos flexíveis (repeater)
+        // Matriz Curricular
+        $course_materials = $course_data['accordion_MatCur'];
+        if (is_array($course_materials)) {
+            $curriculum_items = array();
+            foreach ($course_materials as $material) {
+                $curriculum_items[] = array(
+                    'title' => $material['title'],
+                    'content' => $material['content']
+                );
             }
+            update_field('curriculum_items', $curriculum_items, $post_id);
+        }
+
+        // Competências e Habilidades
+        $skills = $course_data['competenciasHabilidades'];
+        if (is_array($skills)) {
+            $skills_items = array();
+            foreach ($skills as $skill) {
+                $skills_items[] = array(
+                    'skill' => $skill
+                );
+            }
+            update_field('skills_abilities', $skills_items, $post_id);
         }
     } else {
-        // Alternativa usando metadados padrão
-        foreach ( $course_data as $key => $value ) {
-            if ( $key !== 'title' && $key !== 'description' ) {
-                update_post_meta( $post_id, $key, $value );
-            }
-        }
+        wp_send_json_error(array('message' => 'ACF não está ativo. Por favor, ative o plugin Advanced Custom Fields.'));
     }
     
     // Retornar sucesso

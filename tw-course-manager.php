@@ -153,6 +153,15 @@ function tw_course_manager_import_course() {
     
     // Adicionar campos personalizados (SCF)
     if (function_exists('update_field')) {
+        // Primeiro, vamos tratar a imagem
+        $image_url = $course_data['imagem'];
+        $image_id = 0;
+        
+        if (!empty($image_url)) {
+            // Baixa a imagem e cria o attachment
+            $image_id = tw_download_and_attach_image($image_url, $post_id);
+        }
+
         // Campos de texto simples
         update_field('course_name', $course_data['nomeCurso'], $post_id);
         update_field('base_course_jacad_id', $course_data['base_course_jacad_id'], $post_id);
@@ -162,7 +171,9 @@ function tw_course_manager_import_course() {
         update_field('completion_time', $course_data['tempoConclusao'], $post_id);
         update_field('about_course', $course_data['sobreCurso'], $post_id);
         update_field('job_market', $course_data['mercadoTrabalho'], $post_id);
-        update_field('course_image', $course_data['imagem'], $post_id);
+        update_field('course_image', $image_id, $post_id);
+        set_post_thumbnail($post_id, $image_id);
+        update_field('mec_ordinance', $course_data['portariaCursoMec'], $post_id);
         update_field('mec_ordinance', $course_data['portariaCursoMec'], $post_id);
         update_field('enrollment_link', $course_data['linkInscricao'], $post_id);
         update_field('price_from', $course_data['precoDe'], $post_id);
@@ -209,6 +220,56 @@ function tw_course_manager_import_course() {
     ));
 }
 add_action( 'wp_ajax_tw_course_manager_import_course', 'tw_course_manager_import_course' );
+
+// Adicione esta nova função no arquivo
+function tw_download_and_attach_image($image_url, $post_id) {
+    // Verifica se a URL é válida
+    if (!filter_var($image_url, FILTER_VALIDATE_URL)) {
+        return 0;
+    }
+
+    // Pega o nome do arquivo da URL
+    $filename = basename($image_url);
+
+    // Verifica se a imagem já existe na biblioteca
+    $existing_attachment = get_posts(array(
+        'post_type' => 'attachment',
+        'meta_key' => '_source_url',
+        'meta_value' => $image_url,
+        'posts_per_page' => 1
+    ));
+
+    if (!empty($existing_attachment)) {
+        return $existing_attachment[0]->ID;
+    }
+
+    // Baixa o arquivo
+    $tmp = download_url($image_url);
+    if (is_wp_error($tmp)) {
+        return 0;
+    }
+
+    // Prepara o array para wp_handle_sideload
+    $file_array = array(
+        'name'     => $filename,
+        'tmp_name' => $tmp
+    );
+
+    // Move o arquivo temporário para a pasta de uploads
+    $attachment = media_handle_sideload($file_array, $post_id);
+
+    // Remove o arquivo temporário
+    @unlink($tmp);
+
+    if (is_wp_error($attachment)) {
+        return 0;
+    }
+
+    // Salva a URL original como meta para evitar duplicatas
+    update_post_meta($attachment, '_source_url', $image_url);
+
+    return $attachment;
+}
 
 // Incluir arquivos adicionais
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-plugin-dependencies.php';

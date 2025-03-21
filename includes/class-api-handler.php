@@ -58,7 +58,7 @@ class TW_Course_API_Handler {
                         'Avaliação nutricional',
                         'Promoção da saúde alimentar'
                     ),
-                    'imagem' => 'link-imagem-curso',
+                    'imagem' => 'https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png',
                     'portariaCursoMec' => 'link-portaria',
                     'linkInscricao' => 'link-Inscrição',
                     'precoDe' => 'R$ 70.000,00',

@@ -108,7 +108,10 @@ class TW_Course_ACF_Fields_Handler {
                     'key' => 'field_course_image',
                     'label' => 'Imagem do Curso',
                     'name' => 'course_image',
-                    'type' => 'text',
+                    'type' => 'image',
+                    'return_format' => 'id',
+                    'preview_size' => 'medium',
+                    'library' => 'all',
                 ),
                 array(
                     'key' => 'field_mec_ordinance',

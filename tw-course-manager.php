@@ -208,6 +208,7 @@ add_action( 'wp_ajax_tw_course_manager_import_course', 'tw_course_manager_import
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-plugin-dependencies.php';
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-api-handler.php';
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-cpt-handler.php';
+require_once TW_COURSE_MANAGER_PATH . 'includes/class-acf-fields-handler.php';
 
 // Inicializar as classes
 new TW_Course_Plugin_Dependencies();

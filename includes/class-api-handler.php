@@ -21,99 +21,40 @@ class TW_Course_API_Handler {
      * Busca todos os cursos disponíveis na API
      */
     public function get_all_courses() {
-        // $response = wp_remote_get( $this->api_url );
+        // Implementação atual usando JSON local
+        $json_file_path = plugin_dir_path(dirname(__FILE__)) . 'response-mock.json';
+        $json_string = file_get_contents($json_file_path);
+        $data = json_decode($json_string, true);
 
+        if ($data === null) {
+            return array(
+                'success' => false,
+                'message' => 'Erro ao carregar dados do arquivo JSON'
+            );
+        }
 
+        // Futura implementação usando API
+        /*
+        $response = wp_remote_get($this->api_url);
         
-        if ( is_wp_error( $response ) ) {
+        if (is_wp_error($response)) {
             return array(
                 'success' => false,
                 'message' => $response->get_error_message()
             );
         }
         
-        $body = wp_remote_retrieve_body( $response );
-        // $data = json_decode( $body, true );  
+        $body = wp_remote_retrieve_body($response);
+        $data = json_decode($body, true);
+        */
 
-
-        $data = array(
-            'success' => true,
-            'data' => array(
-                array(
-                    'id' => 29,
-                    'nomeCurso' => 'Nutrição',
-                    'base_course_jacad_id' => 35,
-                    'level' => 'grd_bch',
-                    'kind' => 'ead',
-                    'modalidade' => 'GRADUAÇÃO EAD',
-                    'tempoConclusao' => '8 semestres',
-                    'sobreCurso' => '<p>O curso de Nutrição visa formar profissionais com conhecimento em alimentação saudável, prevenção e tratamentos alimentares, atuando em diversas áreas da saúde e bem-estar.</p>',
-                    'mercadoTrabalho' => '<p>O nutricionista pode atuar em hospitais, clínicas, academias, restaurantes, escolas e empresas de alimentos, além de poder abrir consultórios próprios.</p>',
-                    'accordion_MatCur' => array(
-                        array('title' => 'Item 1', 'content' => 'Conteúdo do item 1'),
-                        array('title' => 'Item 2', 'content' => 'Conteúdo do item 2')
-                    ),
-                    'competenciasHabilidades' => array(
-                        'Planejamento de dietas e cardápios',
-                        'Avaliação nutricional',
-                        'Promoção da saúde alimentar'
-                    ),
-                    'imagem' => 'https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png',
-                    'portariaCursoMec' => 'link-portaria',
-                    'linkInscricao' => 'link-Inscrição',
-                    'precoDe' => 'R$ 70.000,00',
-                    'precoPor' => 'R$ 35.000,00',
-                    'score' => 627,
-                    'org_id' => 0,
-                    'area' => 'Saúde',
-                    'created_at' => '2024-09-12 13:36:52',
-                    'updated_at' => '2025-03-18 11:53:40',
-                    'deleted' => 0
-                ),
-                array(
-                    'id' => 30,
-                    'nomeCurso' => 'Musculação',
-                    'base_course_jacad_id' => 335,
-                    'level' => 'grd_bch',
-                    'kind' => 'ead',
-                    'modalidade' => 'PÓS-GRADUAÇÃO EAD',
-                    'tempoConclusao' => '8 semestres',
-                    'sobreCurso' => '<p>O curso de Nutrição visa formar profissionais com conhecimento em alimentação saudável, prevenção e tratamentos alimentares, atuando em diversas áreas da saúde e bem-estar.</p>',
-                    'mercadoTrabalho' => '<p>O nutricionista pode atuar em hospitais, clínicas, academias, restaurantes, escolas e empresas de alimentos, além de poder abrir consultórios próprios.</p>',
-                    'accordion_MatCur' => array(
-                        array('title' => 'Item 1', 'content' => 'Conteúdo do item 1'),
-                        array('title' => 'Item 2', 'content' => 'Conteúdo do item 2')
-                    ),
-                    'competenciasHabilidades' => array(
-                        'Planejamento de dietas e cardápios',
-                        'Avaliação nutricional',
-                        'Promoção da saúde alimentar'
-                    ),
-                    'imagem' => 'https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/kde-neon-a-distribuicao-linux-com-um-desktop-dinamico-e-elegante_crawlerx_ZARrUJtVC5Pu-1_watermarked_1741472945-768x768.png',
-                    'portariaCursoMec' => 'link-portaria',
-                    'linkInscricao' => 'link-Inscrição',
-                    'precoDe' => 'R$ 70.000,00',
-                    'precoPor' => 'R$ 35.000,00',
-                    'score' => 627,
-                    'org_id' => 0,
-                    'area' => 'Saúde',
-                    'created_at' => '2024-09-12 13:36:52',
-                    'updated_at' => '2025-03-18 11:53:40',
-                    'deleted' => 0
-                ),
-                    
-                
-                // Adicione mais cursos aqui seguindo o mesmo padrão
-            )
-        );
-        
-        if ( ! $data || empty( $data ) ) {
+        if (!$data || empty($data)) {
             return array(
                 'success' => false,
-                'message' => 'Nenhum curso encontrado ou resposta inválida da API'
+                'message' => 'Nenhum curso encontrado ou resposta inválida'
             );
         }
-        
+
         return array(
             'success' => true,
             'courses' => $data

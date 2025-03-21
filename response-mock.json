@@ -1,0 +1,748 @@
+{
+  "success": true,
+  "data": [
+    {
+      "nomeCurso": "Nutrição",
+      "base_course_jacad_id": 35,
+      "level": "grd_bch",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "8 semestres",
+      "sobreCurso": "<p>O curso de Nutrição visa formar profissionais com conhecimento em alimentação saudável, prevenção e tratamentos alimentares, atuando em diversas áreas da saúde e bem-estar.</p>",
+      "mercadoTrabalho": "<p>O nutricionista pode atuar em hospitais, clínicas, academias, restaurantes, escolas e empresas de alimentos, além de poder abrir consultórios próprios.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Item 1",
+          "content": "Conteúdo do item 1"
+        },
+        {
+          "title": "Item 2",
+          "content": "Conteúdo do item 2"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Planejamento de dietas e cardápios",
+        "Avaliação nutricional",
+        "Promoção da saúde alimentar"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 70.000,00",
+      "precoPor": "R$ 35.000,00",
+      "score": 627,
+      "org_id": 0,
+      "area": "Saúde",
+      "id": 29,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-18 11:53:40",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Terapia Ocupacional",
+      "base_course_jacad_id": 34,
+      "level": "grd_bch",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "8 semestres",
+      "sobreCurso": "<p>O curso de Terapia Ocupacional capacita os profissionais a trabalhar com a reabilitação de pessoas com dificuldades motoras e cognitivas, utilizando diversas técnicas terapêuticas.</p>",
+      "mercadoTrabalho": "<p>O terapeuta ocupacional pode atuar em hospitais, clínicas de reabilitação, escolas e em atendimentos domiciliares.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Item 1",
+          "content": "Conteúdo do item 1"
+        },
+        {
+          "title": "Item 2",
+          "content": "Conteúdo do item 2"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Avaliação e reabilitação de habilidades motoras",
+        "Promoção de qualidade de vida",
+        "Tratamento de pacientes com deficiências físicas e cognitivas"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 70.000,00",
+      "precoPor": "R$ 35.000,00",
+      "score": 481,
+      "org_id": 0,
+      "area": "Saúde",
+      "id": 34,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-18 11:54:18",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Educação Física Bacharelado",
+      "base_course_jacad_id": 8,
+      "level": "grd_bch",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "8 semestres",
+      "sobreCurso": "<p>O curso de Bacharelado em Educação Física forma profissionais para atuar em diversas áreas do esporte, treinamento físico e atividades de lazer.</p>",
+      "mercadoTrabalho": "<p>O bacharel em Educação Física pode atuar em academias, clínicas de fisioterapia, esportes de alto rendimento, gestão de eventos e esportes amadores.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Item 1",
+          "content": "Conteúdo do item 1"
+        },
+        {
+          "title": "Item 2",
+          "content": "Conteúdo do item 2"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Planejamento de treinamento físico",
+        "Desenvolvimento de programas esportivos",
+        "Avaliação física e desempenho"
+      ],
+      "imagem": "link-imagem-curso",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 42.834,00",
+      "precoPor": "R$ 21.417,00",
+      "score": 426,
+      "org_id": 0,
+      "area": "Saúde",
+      "id": 7,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-17 21:51:57",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Biomedicina",
+      "base_course_jacad_id": 5,
+      "level": "grd_bch",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "8 semestres",
+      "sobreCurso": "<p>O curso de Biomedicina capacita profissionais para atuar no diagnóstico e prevenção de doenças, com foco em análise clínica e exames laboratoriais.</p>",
+      "mercadoTrabalho": "<p>O biomédico pode atuar em laboratórios de análises clínicas, hospitais, clínicas de imagem, universidades e órgãos públicos de saúde.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Item 1",
+          "content": "Conteúdo do item 1"
+        },
+        {
+          "title": "Item 2",
+          "content": "Conteúdo do item 2"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Análises clínicas e laboratoriais",
+        "Prevenção de doenças",
+        "Pesquisa biomédica"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 77.954,00",
+      "precoPor": "R$ 38.977,00",
+      "score": 402,
+      "org_id": 0,
+      "area": "Saúde",
+      "id": 4,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-17 23:06:53",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Administração",
+      "base_course_jacad_id": 3,
+      "level": "grd_bch",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "8 semestres",
+      "sobreCurso": "<p>O curso de Administração prepara profissionais para atuar na gestão de empresas, recursos humanos, finanças e marketing, com foco em estratégias empresariais.</p>",
+      "mercadoTrabalho": "<p>O administrador pode atuar em diversas áreas, como gestão de empresas, consultorias, recursos humanos, marketing e finanças.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Item 1",
+          "content": "Conteúdo do item 1"
+        },
+        {
+          "title": "Item 2",
+          "content": "Conteúdo do item 2"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Gestão de pessoas e processos",
+        "Análise de mercado e concorrência",
+        "Elaboração de estratégias empresariais"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 43.181,00",
+      "precoPor": "R$ 21.590,50",
+      "score": 391,
+      "org_id": 0,
+      "area": "Administração",
+      "id": 2,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-18 13:26:18",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Segunda Licenciatura em Letras: Inglês",
+      "base_course_jacad_id": 89,
+      "level": "grd_lic",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "2 anos",
+      "tempoConclusaoSemestre": "4",
+      "sobreCurso": "<p>O curso de Segunda Licenciatura em Letras: Inglês visa aprofundar o conhecimento em língua inglesa, preparando o profissional para ensinar e promover a cultura dos países de língua inglesa.</p>",
+      "mercadoTrabalho": "<p>O licenciado em Letras: Inglês pode atuar como professor em escolas públicas e privadas, além de traduzir e atuar em projetos culturais e de mídia.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Item 1",
+          "content": "Conteúdo do item 1"
+        },
+        {
+          "title": "Item 2",
+          "content": "Conteúdo do item 2"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Didática e prática de ensino",
+        "Interpretação de textos em inglês",
+        "Tradução e adaptação cultural"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 54000,00",
+      "precoPor": "R$ 13500,00",
+      "score": 4,
+      "org_id": 0,
+      "area": "Letras",
+      "id": 86,
+      "created_at": "2024-09-17 14:20:07",
+      "updated_at": "2025-02-25 19:26:37",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Segunda Licenciatura em Letras: Libras",
+      "base_course_jacad_id": 43,
+      "level": "grd_lic",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "2 anos",
+      "tempoConclusaoSemestre": "4",
+      "sobreCurso": "<p>Este curso de Segunda Licenciatura em Letras: Libras prepara profissionais para a docência da Língua Brasileira de Sinais, com foco na inclusão e acessibilidade.</p>",
+      "mercadoTrabalho": "<p>O licenciado em Letras: Libras pode atuar em escolas, instituições de ensino superior, tradutor e intérprete em eventos e consultorias em acessibilidade.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Item 1",
+          "content": "Conteúdo do item 1"
+        },
+        {
+          "title": "Item 2",
+          "content": "Conteúdo do item 2"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Ensino e interpretação de Libras",
+        "Inclusão social e acessibilidade",
+        "Tradução simultânea em Libras"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 41867,00",
+      "precoPor": "R$ 10466,75",
+      "score": 4,
+      "org_id": 0,
+      "area": "Letras",
+      "id": 41,
+      "created_at": "2024-09-17 14:20:07",
+      "updated_at": "2025-03-15 23:24:46",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Segunda Licenciatura em Letras: Português",
+      "base_course_jacad_id": 67,
+      "level": "grd_lic",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "2 anos",
+      "tempoConclusaoSemestre": "4",
+      "sobreCurso": "<p>O curso de Segunda Licenciatura em Letras: Português tem como objetivo a formação de docentes capacitados para o ensino da língua portuguesa e literatura brasileira.</p>",
+      "mercadoTrabalho": "<p>O licenciado pode atuar em escolas públicas e privadas, além de dar aulas particulares, realizar concursos literários e trabalhar em editoras.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Item 1",
+          "content": "Conteúdo do item 1"
+        },
+        {
+          "title": "Item 2",
+          "content": "Conteúdo do item 2"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Ensino da língua portuguesa",
+        "Literatura brasileira",
+        "Produção de conteúdo literário"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 51366,00",
+      "precoPor": "R$ 12841,50",
+      "score": 2,
+      "org_id": 0,
+      "area": "Letras",
+      "id": 64,
+      "created_at": "2024-09-17 14:20:07",
+      "updated_at": "2025-02-26 12:56:25",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Gestão de Recursos Humanos",
+      "base_course_jacad_id": 32,
+      "level": "grd_tec",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "4 semestres",
+      "sobreCurso": "<p>O curso de Gestão de Recursos Humanos capacita profissionais para atuar no planejamento, organização e execução de políticas de gestão de pessoas nas organizações, promovendo o desenvolvimento de pessoas e a melhoria da performance organizacional.</p>",
+      "mercadoTrabalho": "<p>O profissional pode atuar em empresas privadas, públicas, consultorias, organizações não governamentais e em áreas como recrutamento e seleção, treinamento e desenvolvimento e administração de pessoal.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Gestão de Pessoas",
+          "content": "Conteúdo sobre gestão de pessoas"
+        },
+        {
+          "title": "Recrutamento e Seleção",
+          "content": "Conteúdo sobre recrutamento e seleção"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Gestão de pessoas",
+        "Planejamento estratégico de RH",
+        "Desenvolvimento organizacional"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 41.312,00",
+      "precoPor": "R$ 20.656,00",
+      "score": 193,
+      "org_id": 0,
+      "area": "Administração",
+      "id": 32,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-18 11:02:19",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Segurança no Trabalho",
+      "base_course_jacad_id": 59,
+      "level": "grd_tec",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "4 semestres",
+      "sobreCurso": "<p>O curso de Segurança no Trabalho prepara os profissionais para atuar na prevenção de acidentes e promoção da saúde no ambiente de trabalho, além de implementar normas de segurança e legislações pertinentes.</p>",
+      "mercadoTrabalho": "<p>O profissional pode trabalhar em indústrias, construção civil, empresas de serviços, hospitais, escolas e outros setores que exigem a implementação de medidas de segurança no trabalho.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Normas de Segurança",
+          "content": "Conteúdo sobre normas de segurança"
+        },
+        {
+          "title": "Prevenção de Acidentes",
+          "content": "Conteúdo sobre prevenção de acidentes"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Análise de riscos ocupacionais",
+        "Implantação de normas de segurança",
+        "Promoção de saúde no trabalho"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 41.048,00",
+      "precoPor": "R$ 20.524,00",
+      "score": 193,
+      "org_id": 0,
+      "area": "Segurança",
+      "id": 56,
+      "created_at": "2024-09-17 14:20:07",
+      "updated_at": "2025-03-17 21:00:43",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Gestão Comercial",
+      "base_course_jacad_id": 18,
+      "level": "grd_tec",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "4 semestres",
+      "sobreCurso": "<p>O curso de Gestão Comercial forma profissionais aptos a atuar na área comercial de empresas, com ênfase no planejamento de vendas, marketing e relacionamento com o cliente.</p>",
+      "mercadoTrabalho": "<p>O profissional pode trabalhar em empresas de diversos segmentos, como comércio, indústria, marketing, e consultorias especializadas na área comercial.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Gestão de Vendas",
+          "content": "Conteúdo sobre gestão de vendas"
+        },
+        {
+          "title": "Marketing Comercial",
+          "content": "Conteúdo sobre marketing comercial"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Gestão de vendas",
+        "Marketing e negociação",
+        "Desenvolvimento de estratégias comerciais"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 38.437,00",
+      "precoPor": "R$ 19.218,00",
+      "score": 158,
+      "org_id": 0,
+      "area": "Administração",
+      "id": 17,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-18 00:27:16",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Educação Física Licenciatura",
+      "base_course_jacad_id": 9,
+      "level": "grd_lic",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "8 semestres",
+      "sobreCurso": "<p>O curso de Educação Física Licenciatura capacita profissionais para atuar no ensino de educação física em escolas de ensino fundamental e médio, além de promover a saúde e o bem-estar por meio de atividades físicas.</p>",
+      "mercadoTrabalho": "<p>O licenciado pode atuar em escolas, universidades, academias e centros de treinamento, além de realizar atividades relacionadas à promoção da saúde e qualidade de vida.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Didática de Ensino",
+          "content": "Conteúdo sobre didática de ensino"
+        },
+        {
+          "title": "Atividades Físicas",
+          "content": "Conteúdo sobre atividades físicas"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Ensino de educação física",
+        "Promoção de saúde e qualidade de vida",
+        "Gestão de programas de atividade física"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 42.834,00",
+      "precoPor": "R$ 21.417,00",
+      "score": 154,
+      "org_id": 0,
+      "area": "Educação",
+      "id": 8,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-10 14:00:48",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Marketing Digital",
+      "base_course_jacad_id": 28,
+      "level": "grd_tec",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "4 semestres",
+      "sobreCurso": "<p>O curso de Marketing Digital prepara profissionais para atuarem na criação e gestão de estratégias de marketing para plataformas digitais, focando em marketing de conteúdo, SEO, redes sociais e campanhas pagas.</p>",
+      "mercadoTrabalho": "<p>O profissional pode atuar em empresas de tecnologia, agências de publicidade, como freelancer, ou em empresas que necessitem de estratégias de marketing digital para promover seus produtos e serviços.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Gestão de Mídias Sociais",
+          "content": "Conteúdo sobre mídias sociais"
+        },
+        {
+          "title": "SEO e Marketing de Conteúdo",
+          "content": "Conteúdo sobre SEO e marketing de conteúdo"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Gestão de campanhas digitais",
+        "SEO e marketing de conteúdo",
+        "Estratégias de redes sociais"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 50.791,00",
+      "precoPor": "R$ 25.395,50",
+      "score": 141,
+      "org_id": 0,
+      "area": "Marketing",
+      "id": 27,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-17 18:10:34",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Segurança Pública",
+      "base_course_jacad_id": 33,
+      "level": "grd_tec",
+      "kind": "ead",
+      "modalidade": "GRADUAÇÃO EAD",
+      "tempoConclusao": "4 semestres",
+      "sobreCurso": "<p>O curso de Segurança Pública prepara profissionais para atuar em diversas áreas da segurança pública, como polícia, bombeiros, defesa civil e outras áreas relacionadas à proteção da sociedade.</p>",
+      "mercadoTrabalho": "<p>O profissional pode atuar em órgãos públicos de segurança, polícias militares e civis, corporações de bombeiros e defesa civil, além de empresas privadas de segurança.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Legislação de Segurança Pública",
+          "content": "Conteúdo sobre legislação de segurança pública"
+        },
+        {
+          "title": "Técnicas de Defesa",
+          "content": "Conteúdo sobre técnicas de defesa"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Legislação e normas de segurança pública",
+        "Gestão de crises e emergências",
+        "Atuação em situações de risco"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 36.168,00",
+      "precoPor": "R$ 18.084,00",
+      "score": 138,
+      "org_id": 0,
+      "area": "Segurança",
+      "id": 33,
+      "created_at": "2024-09-12 13:36:52",
+      "updated_at": "2025-03-14 17:32:14",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Alfabetização e Letramento",
+      "base_course_jacad_id": 133,
+      "level": "pos_esp",
+      "kind": "ead",
+      "modalidade": "PÓS-GRADUAÇÃO EAD",
+      "tempoConclusao": "12 meses",
+      "sobreCurso": "<p>O curso de Alfabetização e Letramento visa capacitar profissionais para o ensino de leitura e escrita, com foco em metodologias inovadoras e práticas pedagógicas eficientes para o ensino infantil e fundamental.</p>",
+      "mercadoTrabalho": "<p>O profissional pode atuar em escolas públicas e privadas, além de projetos e ONGs voltados para a educação e alfabetização.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Metodologias de Ensino",
+          "content": "Conteúdo sobre metodologias de ensino"
+        },
+        {
+          "title": "Práticas Pedagógicas",
+          "content": "Conteúdo sobre práticas pedagógicas"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Desenvolvimento de competências leitora e escritora",
+        "Planejamento pedagógico",
+        "Aplicação de metodologias de alfabetização"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 34.900,00",
+      "precoPor": "R$ 17.450,00",
+      "score": 1,
+      "org_id": 2,
+      "area": "Educação",
+      "id": 94,
+      "created_at": "2025-02-25 18:45:40",
+      "updated_at": "2025-02-26 14:45:19",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Biomedicina Estética",
+      "base_course_jacad_id": 186,
+      "level": "pos_esp",
+      "kind": "ead",
+      "modalidade": "PÓS-GRADUAÇÃO EAD",
+      "tempoConclusao": "12 meses",
+      "sobreCurso": "<p>O curso de Biomedicina Estética capacita profissionais da área da saúde para realizar procedimentos estéticos, utilizando técnicas de biomedicina para promover o bem-estar e a estética do paciente.</p>",
+      "mercadoTrabalho": "<p>O profissional pode atuar em clínicas de estética, hospitais e consultórios especializados em procedimentos estéticos e tratamentos corporais e faciais.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Procedimentos Estéticos",
+          "content": "Conteúdo sobre procedimentos estéticos"
+        },
+        {
+          "title": "Tratamentos Faciais e Corporais",
+          "content": "Conteúdo sobre tratamentos estéticos"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Técnicas de biomedicina estética",
+        "Aplicação de tratamentos estéticos",
+        "Atendimento clínico em estética"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 34.900,00",
+      "precoPor": "R$ 17.450,00",
+      "score": 1,
+      "org_id": 2,
+      "area": "Saúde",
+      "id": 180,
+      "created_at": "2025-02-25 18:45:40",
+      "updated_at": "2025-03-11 18:20:27",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Enfermagem em Ginecologia e Obstetrícia",
+      "base_course_jacad_id": 189,
+      "level": "pos_esp",
+      "kind": "ead",
+      "modalidade": "PÓS-GRADUAÇÃO EAD",
+      "tempoConclusao": "6 meses",
+      "sobreCurso": "<p>O curso de Enfermagem em Ginecologia e Obstetrícia capacita enfermeiros para atuar em cuidados específicos de saúde da mulher, com foco na gravidez, parto, puerpério e doenças ginecológicas.</p>",
+      "mercadoTrabalho": "<p>O profissional pode atuar em hospitais, clínicas de ginecologia e obstetrícia, unidades de saúde e como consultor especializado na área.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Cuidados Obstétricos",
+          "content": "Conteúdo sobre cuidados obstétricos"
+        },
+        {
+          "title": "Saúde da Mulher",
+          "content": "Conteúdo sobre saúde da mulher"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Atuação em parto e puerpério",
+        "Atenção à saúde da mulher",
+        "Gestão de unidades obstétricas"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 69.800,00",
+      "precoPor": "R$ 34.900,00",
+      "score": 1,
+      "org_id": 2,
+      "area": "Saúde",
+      "id": 150,
+      "created_at": "2025-02-25 18:45:40",
+      "updated_at": "2025-03-18 11:49:40",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Engenharia de Segurança do Trabalho",
+      "base_course_jacad_id": 209,
+      "level": "pos_esp",
+      "kind": "ead",
+      "modalidade": "PÓS-GRADUAÇÃO EAD",
+      "tempoConclusao": "12 meses",
+      "sobreCurso": "<p>O curso de Engenharia de Segurança do Trabalho capacita profissionais para identificar, analisar e gerenciar riscos ambientais e de segurança, promovendo a saúde e a segurança no ambiente de trabalho.</p>",
+      "mercadoTrabalho": "<p>O profissional pode atuar em indústrias, construção civil, órgãos governamentais, consultorias de segurança e empresas especializadas em saúde ocupacional.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Gestão de Segurança",
+          "content": "Conteúdo sobre gestão de segurança do trabalho"
+        },
+        {
+          "title": "Prevenção de Riscos",
+          "content": "Conteúdo sobre prevenção de riscos no ambiente de trabalho"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Análise de riscos e prevenção",
+        "Gestão de segurança no trabalho",
+        "Elaboração de planos de segurança"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 34.900,00",
+      "precoPor": "R$ 17.450,00",
+      "score": 1,
+      "org_id": 2,
+      "area": "Engenharia",
+      "id": 198,
+      "created_at": "2025-02-25 18:45:40",
+      "updated_at": "2025-03-18 12:18:19",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Farmácia Clínica e Hospitalar",
+      "base_course_jacad_id": 192,
+      "level": "pos_esp",
+      "kind": "ead",
+      "modalidade": "PÓS-GRADUAÇÃO EAD",
+      "tempoConclusao": "12 meses",
+      "sobreCurso": "<p>O curso de Farmácia Clínica e Hospitalar prepara profissionais para atuar em ambientes hospitalares, com ênfase no cuidado farmacológico, gestão de medicamentos e acompanhamento terapêutico de pacientes.</p>",
+      "mercadoTrabalho": "<p>O profissional pode atuar em hospitais, clínicas, farmácias de manipulação, indústria farmacêutica e como consultor farmacêutico.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Farmácia Clínica",
+          "content": "Conteúdo sobre farmácia clínica"
+        },
+        {
+          "title": "Gestão de Medicamentos",
+          "content": "Conteúdo sobre gestão de medicamentos"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Acompanhamento farmacoterapêutico",
+        "Gestão de medicamentos",
+        "Atendimento ao paciente"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 34.900,00",
+      "precoPor": "R$ 17.450,00",
+      "score": 1,
+      "org_id": 2,
+      "area": "Saúde",
+      "id": 201,
+      "created_at": "2025-02-25 18:45:40",
+      "updated_at": "2025-03-09 10:49:49",
+      "deleted": 0
+    },
+    {
+      "nomeCurso": "Mba em Gestão de Pessoas",
+      "base_course_jacad_id": 194,
+      "level": "pos_esp",
+      "kind": "ead",
+      "modalidade": "PÓS-GRADUAÇÃO EAD",
+      "tempoConclusao": "6 meses",
+      "sobreCurso": "<p>O MBA em Gestão de Pessoas capacita profissionais para gerenciar equipes e processos relacionados à gestão de recursos humanos, com foco em estratégias organizacionais e desenvolvimento humano.</p>",
+      "mercadoTrabalho": "<p>O profissional pode atuar em empresas de diversos segmentos, consultorias, órgãos públicos e como consultor autônomo na área de gestão de pessoas.</p>",
+      "accordion_MatCur": [
+        {
+          "title": "Gestão de Pessoas",
+          "content": "Conteúdo sobre gestão de pessoas"
+        },
+        {
+          "title": "Liderança e Desenvolvimento",
+          "content": "Conteúdo sobre liderança e desenvolvimento organizacional"
+        }
+      ],
+      "competenciasHabilidades": [
+        "Gestão estratégica de recursos humanos",
+        "Desenvolvimento de equipes",
+        "Planejamento e liderança organizacional"
+      ],
+      "imagem": "https://conteudo.thetrinityweb.com.br/wp-content/uploads/2025/03/10-estrategias-de-produtividade-que-vao-revolucionar-sua-rotina-como-desenvolvedor_crawlerx_HUARBFZIcyoN-1_watermarked_1741472944-768x768.png",
+      "portariaCursoMec": "link-portaria",
+      "linkInscricao": "link-Inscrição",
+      "precoDe": "R$ 69.800,00",
+      "precoPor": "R$ 34.900,00",
+      "score": 1,
+      "org_id": 2,
+      "area": "Negócios",
+      "id": 155,
+      "created_at": "2025-02-25 18:45:40",
+      "updated_at": "2025-02-26 14:45:19",
+      "deleted": 0
+    }
+  ]
+}

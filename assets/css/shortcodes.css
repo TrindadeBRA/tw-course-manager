@@ -5,11 +5,43 @@
     position: relative;
 
     .tw-course-image {
-        height: 400px;
         object-fit: cover;
         object-position: center;
         border-radius: 20px;
+        aspect-ratio: 4/3;
+        width: 100%;
     }
+
+    a {
+        text-decoration: none!important;
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+            margin: 16px 0 0 0!important;
+        }
+
+        .tw-course-types {
+            font-size: 14px;
+            font-weight: 400;
+            color: #000;
+        }
+
+    }
+    
+    .tw-course-link {
+        background-color: #f85a00;
+        color: #fff;
+        padding: 6px 48px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 16px!important;
+        display: inline-block;
+    }
+    
+    
     /* .tw-course-item {
         background-color: #0f0!important;
     } */

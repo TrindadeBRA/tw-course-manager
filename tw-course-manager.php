@@ -159,7 +159,7 @@ function tw_course_manager_import_course() {
     $existing_posts = get_posts(array(
         'post_type' => 'courses',
         'meta_key' => 'original_id',
-        'meta_value' => $course_data['id'],
+        'meta_value' => $course_data['base_course_jacad_id'],
         'posts_per_page' => 1
     ));
 
@@ -186,6 +186,35 @@ function tw_course_manager_import_course() {
 
     if (is_wp_error($post_id)) {
         wp_send_json_error(array('message' => 'Erro ao criar/atualizar post: ' . $post_id->get_error_message()));
+    }
+
+    if ($course_data['level']){
+
+        // level: {
+        //     pos_esp: 'Especialização',
+        //     grd_bch: 'Bacharelado',
+        //     grd_tec: 'Tecnólogo',
+        //     grd_lic: 'Licenciatura',
+        //     }
+
+        $modalidade = $course_data['level'];
+        switch ($modalidade) {
+            case 'pos_esp':
+                $modalidade = 'Especialização';
+                break;
+            case 'grd_bch':
+                $modalidade = 'Bacharelado';
+                break;
+            case 'grd_tec':
+                $modalidade = 'Tecnólogo';
+                break;
+            case 'grd_lic':
+                $modalidade = 'Licenciatura';
+                break;
+            default:
+                $modalidade = 'Outro';
+                break;
+        }
     }
 
     // Adiciona ou atualiza o termo da taxonomia para a modalidade
@@ -215,26 +244,24 @@ function tw_course_manager_import_course() {
         if (!empty($image_url)) {
             // Baixa a imagem e cria o attachment
             $image_id = tw_download_and_attach_image($image_url, $post_id);
-        }
+        }        
 
         // Campos de texto simples
         update_field('course_name', $course_data['nomeCurso'], $post_id);
         update_field('base_course_jacad_id', $course_data['base_course_jacad_id'], $post_id);
         update_field('level', $course_data['level'], $post_id);
         update_field('kind', $course_data['kind'], $post_id);
-        update_field('modality', $course_data['modalidade'], $post_id);
+        update_field('modality', $modalidade, $post_id);
         update_field('completion_time', $course_data['tempoConclusao'], $post_id);
         update_field('about_course', $course_data['sobreCurso'], $post_id);
         update_field('job_market', $course_data['mercadoTrabalho'], $post_id);
         update_field('course_image', $image_id, $post_id);
         set_post_thumbnail($post_id, $image_id);
         update_field('mec_ordinance', $course_data['portariaCursoMec'], $post_id);
-        update_field('mec_ordinance', $course_data['portariaCursoMec'], $post_id);
         update_field('enrollment_link', $course_data['linkInscricao'], $post_id);
         update_field('price_from', $course_data['precoDe'], $post_id);
         update_field('price_to', $course_data['precoPor'], $post_id);
         update_field('score', $course_data['score'], $post_id);
-        update_field('org_id', $course_data['org_id'], $post_id);
         update_field('area', $course_data['area'], $post_id);
         update_field('original_id', $course_data['base_course_jacad_id'], $post_id);
         // Campos flexíveis (repeater)

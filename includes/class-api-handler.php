@@ -14,7 +14,7 @@ class TW_Course_API_Handler {
     
     public function __construct() {
         // Configure a URL base da API aqui
-        $this->api_url = 'https://sua-api.com/cursos';
+        $this->api_url = 'https://api.etepead.com.br/courseInfo/wordpress/pos';
     }
     
     /**
@@ -22,19 +22,19 @@ class TW_Course_API_Handler {
      */
     public function get_all_courses() {
         // Implementação atual usando JSON local
-        $json_file_path = plugin_dir_path(dirname(__FILE__)) . 'response-mock.json';
-        $json_string = file_get_contents($json_file_path);
-        $data = json_decode($json_string, true);
+        // $json_file_path = plugin_dir_path(dirname(__FILE__)) . 'response-mock.json';
+        // $json_string = file_get_contents($json_file_path);
+        // $data = json_decode($json_string, true);
 
-        if ($data === null) {
-            return array(
-                'success' => false,
-                'message' => 'Erro ao carregar dados do arquivo JSON'
-            );
-        }
+        // if ($data === null) {
+        //     return array(
+        //         'success' => false,
+        //         'message' => 'Erro ao carregar dados do arquivo JSON'
+        //     );
+        // }
 
         // Futura implementação usando API
-        /*
+        
         $response = wp_remote_get($this->api_url);
         
         if (is_wp_error($response)) {
@@ -46,7 +46,7 @@ class TW_Course_API_Handler {
         
         $body = wp_remote_retrieve_body($response);
         $data = json_decode($body, true);
-        */
+        
 
         if (!$data || empty($data)) {
             return array(

@@ -144,12 +144,6 @@ class TW_Course_ACF_Fields_Handler {
                     'type' => 'text',
                 ),
                 array(
-                    'key' => 'field_org_id',
-                    'label' => 'ID da Organização',
-                    'name' => 'org_id',
-                    'type' => 'text',
-                ),
-                array(
                     'key' => 'field_area',
                     'label' => 'Área',
                     'name' => 'area',

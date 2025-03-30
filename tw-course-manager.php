@@ -236,7 +236,7 @@ function tw_course_manager_import_course() {
         update_field('score', $course_data['score'], $post_id);
         update_field('org_id', $course_data['org_id'], $post_id);
         update_field('area', $course_data['area'], $post_id);
-        update_field('original_id', $course_data['id'], $post_id);
+        update_field('original_id', $course_data['base_course_jacad_id'], $post_id);
         // Campos flexíveis (repeater)
         // Matriz Curricular
         $course_materials = $course_data['accordion_MatCur'];

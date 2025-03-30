@@ -14,8 +14,8 @@ class TW_Course_API_Handler {
     
     public function __construct() {
         // Configure a URL base da API aqui
-        // $this->api_url = 'https://api.etepead.com.br/courseInfo/wordpress/pos';
-        $this->api_url = 'https://api.etepead.com.br/courseInfo/wordpress/grd';
+        $this->api_url = 'https://api.etepead.com.br/courseInfo/wordpress/pos';
+        // $this->api_url = 'https://api.etepead.com.br/courseInfo/wordpress/grd';
     }
     
     /**

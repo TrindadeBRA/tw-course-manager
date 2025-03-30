@@ -109,6 +109,7 @@ class TW_Course_Shortcodes_Handler {
             'hide_empty' => true,
         ));
         
+        echo '<div class="tw-course-filter-master">';
         // Exibir botões de filtro
         echo '<div class="tw-course-filter-buttons">';
         
@@ -118,7 +119,12 @@ class TW_Course_Shortcodes_Handler {
             }
         }
         
+        
         echo '</div>';
+        echo '<a class="tw-see-all-courses" href="/cursos">Ver todos os cursos</a>';
+
+        echo '</div>';
+
         
         $args = array(
             'post_type' => 'courses',

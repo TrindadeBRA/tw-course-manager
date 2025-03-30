@@ -12,13 +12,13 @@
     }
 
     a {
-        text-decoration: none!important;
+        text-decoration: none !important;
 
         h3 {
             font-size: 16px;
             font-weight: 600;
             color: #000;
-            margin: 16px 0 0 0!important;
+            margin: 16px 0 0 0 !important;
         }
 
         .tw-course-types {
@@ -28,7 +28,7 @@
         }
 
     }
-    
+
     .tw-course-link {
         background-color: #f85a00;
         color: #fff;
@@ -36,11 +36,11 @@
         border-radius: 100px;
         font-size: 14px;
         font-weight: 600;
-        margin-top: 16px!important;
+        margin-top: 16px !important;
         display: inline-block;
     }
-    
-    
+
+
     /* .tw-course-item {
         background-color: #0f0!important;
     } */
@@ -63,15 +63,16 @@
             color: #f85a00 !important;
             border-radius: 50%;
             pointer-events: auto;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 0;
             line-height: 0;
-            
-            svg, path {
+
+            svg,
+            path {
                 color: #fff !important;
                 stroke: #fff !important;
                 /* fill: #fff !important; */
@@ -113,6 +114,21 @@
     }
 }
 
+.tw-course-filter-master {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+
+    .tw-see-all-courses {
+        text-decoration: none;
+        color: #58326b;
+        font-size: 14px;
+        font-weight: 600;
+        
+    }
+}
+
 .tw-course-filter-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -139,7 +155,7 @@
 
 .tw-filter-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #58326b;
 }
 
@@ -151,4 +167,3 @@
 .tw-course-carousel-wrapper {
     margin-top: 20px;
 }
-

@@ -82,7 +82,7 @@ function tw_course_manager_front_scripts() {
     wp_enqueue_script('owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array('jquery'), '2.3.4', true);
     
     // Script de inicialização do carousel (vamos criar este arquivo)
-    wp_enqueue_script('tw-course-carousel', TW_COURSE_MANAGER_URL . 'assets/js/carousel.js', array('owl-carousel'), TW_COURSE_MANAGER_VERSION, true);
+    wp_enqueue_script('tw-course-carousel', TW_COURSE_MANAGER_URL . 'assets/js/shortcode-carousel.js', array('owl-carousel'), TW_COURSE_MANAGER_VERSION, true);
 }
 add_action('wp_enqueue_scripts', 'tw_course_manager_front_scripts');
 
@@ -398,7 +398,7 @@ require_once TW_COURSE_MANAGER_PATH . 'includes/class-plugin-dependencies.php';
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-api-handler.php';
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-cpt-handler.php';
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-acf-fields-handler.php';
-require_once TW_COURSE_MANAGER_PATH . 'includes/class-shortcodes-handler.php';
+require_once TW_COURSE_MANAGER_PATH . 'includes/shortcodes/class-shortcode-carousel.php';
 
 // Inicializar as classes
 new TW_Course_Plugin_Dependencies();

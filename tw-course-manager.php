@@ -218,8 +218,7 @@ function tw_course_manager_import_course() {
     }
 
     // Adiciona ou atualiza o termo da taxonomia para a modalidade
-    if (!empty($course_data['modalidade'])) {
-        $modalidade = sanitize_text_field($course_data['modalidade']);
+    if ($modalidade) {
         
         // Verifica se o termo já existe
         $term = term_exists($modalidade, 'types');

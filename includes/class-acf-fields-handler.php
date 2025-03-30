@@ -150,6 +150,18 @@ class TW_Course_ACF_Fields_Handler {
                     'type' => 'text',
                 ),
                 array(
+                    'key' => 'field_area_label',
+                    'label' => 'Área Label',
+                    'name' => 'area_label',
+                    'type' => 'text',
+                ),
+                array(
+                    'key' => 'field_area_icon',
+                    'label' => 'Área Icon',
+                    'name' => 'area_icon',
+                    'type' => 'text',
+                ),
+                array(
                     'key' => 'original_id',
                     'label' => 'ID Original',
                     'name' => 'original_id',

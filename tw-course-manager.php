@@ -246,6 +246,43 @@ function tw_course_manager_import_course() {
             $image_id = tw_download_and_attach_image($image_url, $post_id);
         }        
 
+        // Label e Icon da área
+        $area_label = "";
+        $area_icon = "";
+        if ($course_data['area']){
+            switch ($course_data['area']) {
+                case 'dir':
+                    $area_label = 'Ciências Jurídicas';
+                    $area_icon = 'fas fa-balance-scale';
+                    break;
+                case 'eng':
+                    $area_label = 'Engenharia';
+                    $area_icon = 'fas fa-cogs';
+                    break;
+                case 'sau':
+                    $area_label = 'Saúde';
+                    $area_icon = 'fas fa-staff-snake';
+                    break;
+                case 'edu':
+                    $area_label = 'Educação';
+                    $area_icon = 'fas fa-graduation-cap';
+                    break;
+                case 'neg':
+                    $area_label = 'Negócios';
+                    $area_icon = 'fas fa-chart-line';
+                    break;
+                case 'tec':
+                    $area_label = 'Tecnologia';
+                    $area_icon = 'fas fa-laptop-code';
+                    break;
+                case 'cri':
+                    $area_label = 'Economia Criativa';
+                    $area_icon = 'fas fa-palette';
+                    break;
+            }
+            
+        }
+
         // Campos de texto simples
         update_field('course_name', $course_data['nomeCurso'], $post_id);
         update_field('base_course_jacad_id', $course_data['base_course_jacad_id'], $post_id);
@@ -263,6 +300,8 @@ function tw_course_manager_import_course() {
         update_field('price_to', $course_data['precoPor'], $post_id);
         update_field('score', $course_data['score'], $post_id);
         update_field('area', $course_data['area'], $post_id);
+        update_field('area_label', $area_label, $post_id);
+        update_field('area_icon', $area_icon, $post_id);
         update_field('original_id', $course_data['base_course_jacad_id'], $post_id);
         // Campos flexíveis (repeater)
         // Matriz Curricular

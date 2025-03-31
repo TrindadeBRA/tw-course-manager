@@ -1,65 +1,79 @@
 # TW Course Manager
 
-**Contributors:** lucastrindade  
-**Tags:** cursos, api, importador, educação, importação  
-**Requires at least:** 5.0  
-**Tested up to:** 6.3  
-**Stable tag:** 1.0  
-**Requires PHP:** 7.0  
-**License:** GPLv2 or later  
-**License URI:** https://www.gnu.org/licenses/gpl-2.0.html
+## Visão Geral
+O **TW Course Manager** é um plugin WordPress para gerenciamento e exibição de cursos. Ele permite importar cursos automaticamente de uma API externa, organizá-los em um tipo de post personalizado e exibi-los no seu site através de shortcodes.
 
-Um plugin simples para WordPress que gerencia e importa cursos de APIs externas.
+## Recursos Principais
 
-## Description
+### Importação de Cursos
+- Importação automatizada de cursos via API
+- Upload e vinculação automática de imagens em destaque
+- Detecção de cursos existentes para evitar duplicações
 
-O TW Course Manager é um plugin WordPress desenvolvido para facilitar a importação e gestão de cursos de APIs externas. Ele cria um tipo de post personalizado (CPT) para cursos e oferece uma interface de administração para importar cursos facilmente.
+<div align="center">
+  <img src="assets/img/screenshot-01.png" alt="importação de cursos" width="800">
+</div>
 
-### Funcionalidades
+### Gerenciamento de Cursos
+- Custom Post Type dedicado para cursos
+- Taxonomia personalizada para tipos de formação (Bacharelado, Licenciatura, etc.)
+- Campos personalizados para detalhes do curso (duração, modalidade, etc.)
 
-* Cria um tipo de post personalizado "Cursos" (courses)
-* Adiciona taxonomia "Tipos de Formação" (types) para categorizar cursos
-* Interface administrativa para importação de cursos via API
-* Processo de importação com barra de progresso visual
-* Suporte para campos personalizados (compatível com ACF)
-* Feedback claro do processo de importação
+<div align="center">
+  <img src="assets/img/screenshot-02.png" alt="gerenciamento de cursos" width="800">
+</div>
 
-### Como Funciona
+### Exibição de Cursos
+- Shortcode de carrossel para exibição dinâmica de cursos
+- Shortcode de pesquisa para filtrar e encontrar cursos
+- Filtros por tipo de formação em ambos os shortcodes
 
-1. **Registro de Post Type e Taxonomias**: O plugin registra um tipo de post personalizado para cursos e uma taxonomia hierárquica para categorizá-los.
+## Como Usar
 
-2. **Interface Administrativa**: Uma página de administração é adicionada como submenu no menu "Cursos", com o título "Importador".
+### Shortcodes
+Basta adicionar os shortcodes em qualquer lugar do seu site onde você deseja exibir os cursos. Inserir cor de fundo, padding, etc. dentro do container no WordPress/Plugins.
 
-3. **Importação de Cursos**: 
-   * Ao clicar no botão "Importar Cursos da API", o plugin faz uma requisição para a API configurada
-   * Processa os dados retornados da API
-   * Importa cada curso individualmente como posts do tipo "courses"
-   * Adiciona metadados personalizados para cada curso
+<div align="center">
+  <img src="assets/img/screenshot-03.png" alt="shortcodes" width="800">
+</div>
 
-4. **Feedback Visual**: Uma barra de progresso mostra o status da importação e resultados detalhados são exibidos após a conclusão.
+### Shortcode de Carrossel
+```php
+[tw-course-carousel]
+```
+Exibe um carrossel responsivo com os cursos cadastrados, com botões de filtro por tipo de formação.
 
-### Requisitos
+<div align="center">
+  <img src="assets/img/screenshot-04.png" alt="shortcode de carrossel" width="800">
+</div>
 
-* WordPress 5.0 ou superior
-* PHP 7.0 ou superior
-* (Opcional) Plugin Advanced Custom Fields (ACF) para melhor gerenciamento de campos personalizados
+### Shortcode de Pesquisa
+```php
+[tw-course-search]
+```
+Exibe uma interface de pesquisa com filtros por tipo de formação e campo de busca textual, mostrando os resultados em formato de grade.
 
-## Installation
+<div align="center">
+  <img src="assets/img/screenshot-05.png" alt="shortcode de pesquisa" width="800">
+</div>
 
-1. Faça o upload da pasta `tw-course-manager` para o diretório `/wp-content/plugins/`
-2. Ative o plugin através do menu 'Plugins' no WordPress
-3. Acesse o submenu "Importador" dentro do menu "Cursos" no painel administrativo
+### Importador de Cursos
+1. Acesse o menu "Cursos > Importador" no painel administrativo.
+2. Clique no botão "Importar Cursos da API".
+3. O sistema buscará automaticamente os cursos disponíveis e importará cada um.
+4. Uma barra de progresso mostrará o status da importação.
+5. Após a conclusão, será exibido um relatório dos cursos importados.
 
-## Frequently Asked Questions
-
-### Como configurar a URL da API?
-
-Você pode configurar a URL da API de cursos no arquivo `includes/class-api-handler.php`.
-
-### Quais dados são importados dos cursos?
-
-O plugin importa título, conteúdo, imagem destacada e metadados personalizados conforme configurado no arquivo de manipulação da API.
-
-### É possível personalizar os campos dos cursos?
-
-Sim, você pode modificar a função `prepare_course_for_import()` na classe `TW_Course_API_Handler` para mapear campos adicionais da API.
+## Campos Personalizados
+Cada curso importado contém os seguintes dados:
+- Nome do curso
+- Modalidade (Presencial, EAD)
+- Tipo de formação (Bacharelado, Licenciatura, etc.)
+- Tempo de conclusão
+- Sobre o curso
+- Mercado de trabalho
+- Matriz curricular
+- Competências e habilidades
+- Preços
+- Área de conhecimento
+- Portaria MEC

@@ -43,10 +43,6 @@
         }
 
 
-        /* .tw-course-item {
-        background-color: #0f0!important;
-    } */
-
         .owl-nav {
             position: absolute;
             width: 100%;
@@ -119,8 +115,14 @@
     .tw-course-filter-master {
         display: flex;
         justify-content: space-between;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
+        gap: 16px;
+
+        @media (min-width: 1000px) {
+            flex-direction: row;
+            gap: 0;
+        }
 
         .tw-see-all-courses {
             text-decoration: none;
@@ -135,7 +137,11 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        justify-content: left;
+        justify-content: center;
+
+        @media (min-width: 1000px) {
+            justify-content: center;
+        }
     }
 
     .tw-filter-btn {
@@ -159,6 +165,7 @@
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background-color: #58326b;
+        color: #fff;
     }
 
     .tw-course-carousel.loading {

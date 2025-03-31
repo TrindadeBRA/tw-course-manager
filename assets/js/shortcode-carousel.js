@@ -33,27 +33,28 @@ jQuery(document).ready(function ($) {
     // Inicializar o carrossel quando a página carrega
     initCarousel();
     
-    // Manipular clique nos botões de filtro - usando delegação de eventos
-    $(document).off('click', '.tw-filter-btn').on('click', '.tw-filter-btn', function(e) {
+    // Modificar para usar escopo de contêiner para evitar conflitos
+    $(document).off('click', '.tw-course-carousel-container .tw-filter-btn')
+              .on('click', '.tw-course-carousel-container .tw-filter-btn', function(e) {
         e.preventDefault();
         var $this = $(this);
         var typeId = $this.data('type');
+        var $container = $this.closest('.tw-course-carousel-container');
         
-        console.log('Botão clicado - ID:', typeId, 'Estado atual:', $this.hasClass('active'));
+        console.log('Carrossel: Botão clicado - ID:', typeId, 'Estado atual:', $this.hasClass('active'));
         
         // Verificar se o botão já está ativo
         if ($this.hasClass('active')) {
-            // Se já estiver ativo, desative-o e mostre todos os cursos
             $this.removeClass('active');
             typeId = 0; // Mostra todos os cursos
-            console.log('Desativando filtro, typeId agora é 0');
+            console.log('Carrossel: Desativando filtro, typeId agora é 0');
         } else {
-            // Remover classe ativa de todos os botões
-            $('.tw-filter-btn').removeClass('active');
+            // Remover classe ativa apenas dos botões dentro deste contêiner
+            $container.find('.tw-filter-btn').removeClass('active');
             
             // Adicionar classe ativa ao botão clicado
             $this.addClass('active');
-            console.log('Ativando filtro com typeId:', typeId);
+            console.log('Carrossel: Ativando filtro com typeId:', typeId);
         }
         
         // Fazer requisição AJAX
@@ -66,15 +67,15 @@ jQuery(document).ready(function ($) {
                 type_id: typeId
             },
             beforeSend: function() {
-                // Adicionar classe de carregamento ao carrossel
-                $('.tw-course-carousel').addClass('loading');
-                console.log('Enviando requisição AJAX com typeId:', typeId);
+                // Adicionar classe de carregamento apenas ao carrossel dentro deste contêiner
+                $container.find('.tw-course-carousel').addClass('loading');
+                console.log('Carrossel: Enviando requisição AJAX com typeId:', typeId);
             },
             success: function(response) {
-                console.log('Resposta AJAX recebida:', response);
+                console.log('Carrossel: Resposta AJAX recebida:', response);
                 if (response.success) {
-                    // Destruir o carrossel atual
-                    var owl = $('.tw-course-carousel');
+                    // Destruir o carrossel atual dentro deste contêiner
+                    var owl = $container.find('.tw-course-carousel');
                     owl.trigger('destroy.owl.carousel');
                     
                     // Atualizar o conteúdo do carrossel
@@ -83,17 +84,17 @@ jQuery(document).ready(function ($) {
                     // Reinicializar o carrossel
                     initCarousel();
                     
-                    console.log('Carrossel reconstruído');
+                    console.log('Carrossel: Carrossel reconstruído');
                 } else {
-                    console.error('Erro na resposta AJAX');
+                    console.error('Carrossel: Erro na resposta AJAX');
                 }
                 
                 // Remover classe de carregamento
-                $('.tw-course-carousel').removeClass('loading');
+                $container.find('.tw-course-carousel').removeClass('loading');
             },
             error: function(xhr, status, error) {
-                console.error('Erro AJAX:', error);
-                $('.tw-course-carousel').removeClass('loading');
+                console.error('Carrossel: Erro AJAX:', error);
+                $container.find('.tw-course-carousel').removeClass('loading');
             }
         });
     });

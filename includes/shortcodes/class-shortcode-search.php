@@ -162,7 +162,7 @@ class TW_Course_Search_Shortcodes_Handler {
                 echo '<span>'.get_field('completion_time').'</span>';
                 echo '</div>';
                 
-                echo '<a href="' . get_permalink() . '" class="tw-course-link">Ingressar</a>';
+                echo '<a href="' . get_permalink() . '" class="tw-course-link">Saiba mais</a>';
                 echo '</a>';
                 echo '</div>';
             }

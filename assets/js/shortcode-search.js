@@ -1,10 +1,10 @@
 jQuery(document).ready(function ($) {
     // Função para realizar a busca e filtragem
-    function searchCourses() {
-        var searchTerm = $('#tw-course-search-input').val();
-        var activeTypeId = $('.tw-filter-btn.active').data('type') || 0;
+    function searchCourses($container) {
+        var searchTerm = $container.find('#tw-course-search-input').val();
+        var activeTypeId = $container.find('.tw-filter-btn.active').data('type') || 0;
         
-        console.log('Buscando cursos com termo:', searchTerm, 'e tipo ID:', activeTypeId);
+        console.log('Busca: Buscando cursos com termo:', searchTerm, 'e tipo ID:', activeTypeId);
         
         // Fazer requisição AJAX
         $.ajax({
@@ -18,62 +18,65 @@ jQuery(document).ready(function ($) {
             },
             beforeSend: function() {
                 // Adicionar classe de carregamento
-                $('.tw-course-results').addClass('loading');
+                $container.find('.tw-course-results').addClass('loading');
             },
             success: function(response) {
                 if (response.success) {
                     // Atualizar o conteúdo dos resultados
-                    $('.tw-course-results').html(response.data);
-                    console.log('Resultados atualizados com sucesso');
+                    $container.find('.tw-course-results').html(response.data);
+                    console.log('Busca: Resultados atualizados com sucesso');
                 } else {
-                    console.error('Erro na resposta AJAX');
+                    console.error('Busca: Erro na resposta AJAX');
                 }
                 
                 // Remover classe de carregamento
-                $('.tw-course-results').removeClass('loading');
+                $container.find('.tw-course-results').removeClass('loading');
             },
             error: function(xhr, status, error) {
-                console.error('Erro AJAX:', error);
-                $('.tw-course-results').removeClass('loading');
+                console.error('Busca: Erro AJAX:', error);
+                $container.find('.tw-course-results').removeClass('loading');
             }
         });
     }
     
-    // Manipular clique no botão de busca
-    $('#tw-course-search-button').on('click', function() {
-        searchCourses();
+    // Manipular clique no botão de busca - modificar para escopo de contêiner
+    $(document).on('click', '#tw-course-search-button', function() {
+        var $container = $(this).closest('.tw-course-search-container');
+        searchCourses($container);
     });
     
-    // Manipular pressionar Enter no campo de busca
-    $('#tw-course-search-input').on('keypress', function(e) {
+    // Manipular pressionar Enter no campo de busca - modificar para escopo de contêiner
+    $(document).on('keypress', '#tw-course-search-input', function(e) {
         if (e.which === 13) {
             e.preventDefault();
-            searchCourses();
+            var $container = $(this).closest('.tw-course-search-container');
+            searchCourses($container);
         }
     });
     
-    // Manipular clique nos botões de filtro - usando event binding direto
-    $('.tw-filter-btn').on('click', function(e) {
+    // Manipular clique nos botões de filtro - usar delegação com escopo de contêiner
+    $(document).on('click', '.tw-course-search-container .tw-filter-btn', function(e) {
         e.preventDefault();
         var $this = $(this);
+        var $container = $this.closest('.tw-course-search-container');
         
-        console.log('Botão clicado:', $this.text(), 'ID:', $this.data('type'));
+        console.log('Busca: Botão clicado:', $this.text(), 'ID:', $this.data('type'));
         
         // Verificar se o botão já está ativo
         if ($this.hasClass('active')) {
             // Se já estiver ativo, desative-o
             $this.removeClass('active');
-            console.log('Removendo classe active');
+            console.log('Busca: Removendo classe active');
         } else {
-            // Remover classe ativa de todos os botões
-            $('.tw-filter-btn').removeClass('active');
+            // Remover classe ativa apenas dos botões dentro deste contêiner
+            $container.find('.tw-filter-btn').removeClass('active');
             
             // Adicionar classe ativa ao botão clicado
             $this.addClass('active');
-            console.log('Adicionando classe active');
+            console.log('Busca: Adicionando classe active');
         }
         
         // Realizar a busca com os novos filtros
-        searchCourses();
+        searchCourses($container);
     });
 }); 

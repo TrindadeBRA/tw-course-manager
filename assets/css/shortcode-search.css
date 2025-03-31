@@ -52,7 +52,8 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        justify-content: left;
+        justify-content: center;
+
     }
 
     .tw-filter-btn {
@@ -128,13 +129,20 @@
     }
 
     .tw-course-link {
-        background-color: #f85a00;
-        color: #fff;
+        background-color: transparent;
+        border: 2px solid #58326b;
+        color: #58326b;
         padding: 6px 48px;
         border-radius: 100px;
         font-size: 14px;
         font-weight: 600;
         margin-top: 16px !important;
         display: inline-block;
+
+        &:hover {
+            background-color: #58326b;
+            color: #fff;
+        }
+
     }
 }

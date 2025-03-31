@@ -73,7 +73,7 @@ function tw_course_manager_front_scripts() {
     wp_enqueue_style('owl-theme-default', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array(), '2.3.4');
     
     // Plugin CSS
-    wp_enqueue_style('tw-course-shortcodes', TW_COURSE_MANAGER_URL . 'assets/css/shortcodes.css', array(), TW_COURSE_MANAGER_VERSION);
+    wp_enqueue_style('tw-course-shortcodes', TW_COURSE_MANAGER_URL . 'assets/css/shortcode-carousel.css', array(), TW_COURSE_MANAGER_VERSION);
     
     // jQuery (garantir que está carregado)
     wp_enqueue_script('jquery');
@@ -399,6 +399,7 @@ require_once TW_COURSE_MANAGER_PATH . 'includes/class-api-handler.php';
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-cpt-handler.php';
 require_once TW_COURSE_MANAGER_PATH . 'includes/class-acf-fields-handler.php';
 require_once TW_COURSE_MANAGER_PATH . 'includes/shortcodes/class-shortcode-carousel.php';
+require_once TW_COURSE_MANAGER_PATH . 'includes/shortcodes/class-shortcode-search.php';
 
 // Inicializar as classes
 new TW_Course_Plugin_Dependencies();

@@ -1,0 +1,172 @@
+.tw-course-carousel-container {
+
+
+    .tw-course-carousel-wrapper {
+        /* background-color: #eddbcf!important; */
+        position: relative;
+
+        .tw-course-image {
+            object-fit: cover;
+            object-position: center;
+            border-radius: 20px;
+            aspect-ratio: 4/3;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none !important;
+
+            h3 {
+                font-size: 16px;
+                font-weight: 600;
+                color: #000;
+                margin: 16px 0 0 0 !important;
+            }
+
+            .tw-course-types {
+                font-size: 14px;
+                font-weight: 400;
+                color: #000;
+            }
+
+        }
+
+        .tw-course-link {
+            background-color: #f85a00;
+            color: #fff;
+            padding: 6px 48px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 16px !important;
+            display: inline-block;
+        }
+
+
+        /* .tw-course-item {
+        background-color: #0f0!important;
+    } */
+
+        .owl-nav {
+            position: absolute;
+            width: 100%;
+            top: 30%;
+            transform: translateY(-50%);
+            margin-top: 0;
+            pointer-events: none;
+            z-index: 10;
+
+            button.owl-prev,
+            button.owl-next {
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                background: #58326b !important;
+                color: #f85a00 !important;
+                border-radius: 50%;
+                pointer-events: auto;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                line-height: 0;
+
+                svg,
+                path {
+                    color: #fff !important;
+                    stroke: #fff !important;
+                    /* fill: #fff !important; */
+                }
+
+                &:hover {
+                    background: #f85a00 !important;
+                    color: #fff !important;
+                }
+
+                span {
+                    font-size: 24px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    line-height: 0;
+                    height: auto;
+                    width: auto;
+                    margin-top: -2px;
+                    margin-left: -1px;
+                }
+            }
+
+            button.owl-prev span {
+                margin-left: -2px;
+            }
+
+            button.owl-next span {
+                margin-right: -1px;
+            }
+
+            button.owl-prev {
+                left: -20px;
+            }
+
+            button.owl-next {
+                right: -20px;
+            }
+        }
+    }
+
+    .tw-course-filter-master {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+
+        .tw-see-all-courses {
+            text-decoration: none;
+            color: #58326b;
+            font-size: 14px;
+            font-weight: 600;
+
+        }
+    }
+
+    .tw-course-filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: left;
+    }
+
+    .tw-filter-btn {
+        padding: 8px 16px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: transparent;
+        border: 2px solid #58326b;
+        color: #58326b;
+    }
+
+    .tw-filter-btn.active {
+        background-color: #58326b;
+        color: #fff;
+    }
+
+    .tw-filter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #58326b;
+    }
+
+    .tw-course-carousel.loading {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .tw-course-carousel-wrapper {
+        margin-top: 20px;
+    }
+}

@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
         var searchTerm = $container.find('#tw-course-search-input').val();
         var activeTypeId = $container.find('.tw-filter-btn.active').data('type') || 0;
         
-        console.log('Busca: Buscando cursos com termo:', searchTerm, 'e tipo ID:', activeTypeId);
+        // console.log('Busca: Buscando cursos com termo:', searchTerm, 'e tipo ID:', activeTypeId);
         
         // Fazer requisição AJAX
         $.ajax({
@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
                 if (response.success) {
                     // Atualizar o conteúdo dos resultados
                     $container.find('.tw-course-results').html(response.data);
-                    console.log('Busca: Resultados atualizados com sucesso');
+                    // console.log('Busca: Resultados atualizados com sucesso');
                 } else {
                     console.error('Busca: Erro na resposta AJAX');
                 }
@@ -59,21 +59,23 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         var $this = $(this);
         var $container = $this.closest('.tw-course-search-container');
+        var typeId = $this.data('type');
         
-        console.log('Busca: Botão clicado:', $this.text(), 'ID:', $this.data('type'));
+        // console.log('Busca: Botão clicado:', $this.text(), 'ID:', typeId);
         
         // Verificar se o botão já está ativo
         if ($this.hasClass('active')) {
-            // Se já estiver ativo, desative-o
+            // Se já estiver ativo, desative-o e mostre todos os cursos
             $this.removeClass('active');
-            console.log('Busca: Removendo classe active');
+            typeId = 0; // Definir explicitamente para mostrar todos os cursos
+            // console.log('Busca: Removendo classe active, mostrando todos os cursos');
         } else {
             // Remover classe ativa apenas dos botões dentro deste contêiner
             $container.find('.tw-filter-btn').removeClass('active');
             
             // Adicionar classe ativa ao botão clicado
             $this.addClass('active');
-            console.log('Busca: Adicionando classe active');
+            // console.log('Busca: Adicionando classe active');
         }
         
         // Realizar a busca com os novos filtros

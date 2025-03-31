@@ -33,28 +33,28 @@ jQuery(document).ready(function ($) {
     // Inicializar o carrossel quando a página carrega
     initCarousel();
     
-    // Modificar para usar escopo de contêiner para evitar conflitos
-    $(document).off('click', '.tw-course-carousel-container .tw-filter-btn')
-              .on('click', '.tw-course-carousel-container .tw-filter-btn', function(e) {
+    // Usar delegação de eventos com escopo de contêiner
+    $(document).on('click', '.tw-course-carousel-container .tw-filter-btn', function(e) {
         e.preventDefault();
         var $this = $(this);
         var typeId = $this.data('type');
         var $container = $this.closest('.tw-course-carousel-container');
         
-        console.log('Carrossel: Botão clicado - ID:', typeId, 'Estado atual:', $this.hasClass('active'));
+        // console.log('Carrossel: Botão clicado - ID:', typeId, 'Estado atual:', $this.hasClass('active'));
         
         // Verificar se o botão já está ativo
         if ($this.hasClass('active')) {
+            // Se já estiver ativo, desative-o e mostre todos os cursos
             $this.removeClass('active');
-            typeId = 0; // Mostra todos os cursos
-            console.log('Carrossel: Desativando filtro, typeId agora é 0');
+            typeId = 0; // Mostrar todos os cursos
+            // console.log('Carrossel: Desativando filtro, mostrando todos os cursos');
         } else {
             // Remover classe ativa apenas dos botões dentro deste contêiner
             $container.find('.tw-filter-btn').removeClass('active');
             
             // Adicionar classe ativa ao botão clicado
             $this.addClass('active');
-            console.log('Carrossel: Ativando filtro com typeId:', typeId);
+            // console.log('Carrossel: Ativando filtro com typeId:', typeId);
         }
         
         // Fazer requisição AJAX
@@ -69,10 +69,10 @@ jQuery(document).ready(function ($) {
             beforeSend: function() {
                 // Adicionar classe de carregamento apenas ao carrossel dentro deste contêiner
                 $container.find('.tw-course-carousel').addClass('loading');
-                console.log('Carrossel: Enviando requisição AJAX com typeId:', typeId);
+                // console.log('Carrossel: Enviando requisição AJAX com typeId:', typeId);
             },
             success: function(response) {
-                console.log('Carrossel: Resposta AJAX recebida:', response);
+                // console.log('Carrossel: Resposta AJAX recebida:', response);
                 if (response.success) {
                     // Destruir o carrossel atual dentro deste contêiner
                     var owl = $container.find('.tw-course-carousel');
@@ -84,7 +84,7 @@ jQuery(document).ready(function ($) {
                     // Reinicializar o carrossel
                     initCarousel();
                     
-                    console.log('Carrossel: Carrossel reconstruído');
+                    // console.log('Carrossel: Carrossel reconstruído');
                 } else {
                     console.error('Carrossel: Erro na resposta AJAX');
                 }

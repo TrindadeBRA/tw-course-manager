@@ -6,6 +6,11 @@
         display: flex;
         margin-bottom: 20px;
         width: 100%;
+
+        @media (min-width: 1000px) {
+            max-width: 80%;
+            margin: 0 auto 20px auto;
+        }
     }
 
     #tw-course-search-input {

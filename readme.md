@@ -23,6 +23,11 @@ O **TW Course Manager** é um plugin WordPress para gerenciamento e exibição d
   <img src="assets/img/screenshot-02.png" alt="gerenciamento de cursos" width="800">
 </div>
 
+<div align="center">
+  <img src="assets/img/screenshot-06.png" alt="gerenciamento de cursos" width="800">
+</div>
+
+
 ### Exibição de Cursos
 - Shortcode de carrossel para exibição dinâmica de cursos
 - Shortcode de pesquisa para filtrar e encontrar cursos

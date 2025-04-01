@@ -48,8 +48,9 @@ class TW_Course_Shortcodes_Handler {
             'post_type' => 'courses',
             'post_status' => 'publish',
             'posts_per_page' => -1,
-            'orderby' => 'title',
-            'order' => 'ASC'
+            'meta_key' => 'score', 
+            'orderby' => 'meta_value_num', 
+            'order' => 'DESC'
         );
         
         // Adicionar filtro de taxonomia apenas se um tipo for selecionado
@@ -133,8 +134,9 @@ class TW_Course_Shortcodes_Handler {
             'post_type' => 'courses',
             'post_status' => 'publish',
             'posts_per_page' => -1,
-            'orderby' => 'title',
-            'order' => 'ASC'
+            'meta_key' => 'score', 
+            'orderby' => 'meta_value_num', 
+            'order' => 'DESC'
         );
         
         $courses = new WP_Query($args);

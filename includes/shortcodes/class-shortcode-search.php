@@ -45,7 +45,7 @@ class TW_Course_Search_Shortcodes_Handler {
         $args = array(
             'post_type' => 'courses',
             'post_status' => 'publish',
-            'posts_per_page' => -1,
+            'posts_per_page' => 8,
             'orderby' => 'title',
             'order' => 'ASC'
         );
@@ -137,7 +137,7 @@ class TW_Course_Search_Shortcodes_Handler {
         $args = array(
             'post_type' => 'courses',
             'post_status' => 'publish',
-            'posts_per_page' => -1,
+            'posts_per_page' => 8,
             'orderby' => 'title',
             'order' => 'ASC'
         );

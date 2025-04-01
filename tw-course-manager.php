@@ -1,10 +1,8 @@
 <?php
 /**
  * Plugin Name: TW Course Manager
- * Description: A basic course management plugin for WordPress.
+ * Description: Plugin para gerenciar os cursos via API.
  * Version: 1.0
- * Author: Lucas Trindade
- * Author URI: https://lucastrindade.dev
  */
 
 // Evita acesso direto ao arquivo

@@ -193,7 +193,7 @@ function tw_course_manager_import_course() {
         $modalidade = $course_data['level'];
         switch ($modalidade) {
             case 'pos_esp':
-                $modalidade = 'Especialização';
+                $modalidade = 'Pós-Graduação';
                 break;
             case 'grd_bch':
                 $modalidade = 'Bacharelado';

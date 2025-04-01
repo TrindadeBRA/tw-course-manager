@@ -76,7 +76,7 @@ class TW_Course_Shortcodes_Handler {
                 
                 $html .= '<div class="tw-course-item">';
                 $html .= '<a href="'.get_permalink().'">';
-                $html .= '<img src="'.get_the_post_thumbnail_url(get_the_ID(), 'medium').'" alt="'.get_the_title().'" class="tw-course-image">';
+                $html .= '<img src="'.get_the_post_thumbnail_url(get_the_ID(), 'full').'" alt="'.get_the_title().'" class="tw-course-image">';
                 $html .= '<h3>' . get_the_title() . '</h3>';
                 
                 $html .= '<div class="tw-course-types">';

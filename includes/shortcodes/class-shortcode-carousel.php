@@ -25,9 +25,8 @@ class TW_Course_Shortcodes_Handler {
      * Enqueue scripts necessários
      */
     public function enqueue_scripts() {
-        wp_enqueue_script('tw-carousel', plugin_dir_url(__FILE__) . 'assets/js/shortcode-carousel.js', array('jquery'), '1.0.0', true);
-        
-        wp_localize_script('tw-carousel', 'tw_filter_ajax', array(
+        // Remove the duplicate script registration and keep only the localization
+        wp_localize_script('tw-course-carousel', 'tw_filter_ajax', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('tw_filter_nonce')
         ));

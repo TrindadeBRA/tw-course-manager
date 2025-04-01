@@ -131,7 +131,7 @@ class TW_Course_Search_Shortcodes_Handler {
 
         // Campo de busca
         echo '<div class="tw-course-search-box">';
-        echo '<input type="text" id="tw-course-search-input" placeholder="Buscar cursos...">';
+        echo '<input type="text" id="tw-course-search-input" placeholder="Qual curso você procura? Digite aqui">';
         echo '<button id="tw-course-search-button">Buscar</button>';
         echo '</div>';
         

@@ -125,7 +125,7 @@ class TW_Course_Shortcodes_Handler {
         
         
         echo '</div>';
-        echo '<a class="tw-see-all-courses" href="/cursos">Ver todos os cursos</a>';
+        echo '<a class="tw-see-all-courses" href="/nossos-cursos">Ver todos os cursos</a>';
 
         echo '</div>';
 
@@ -154,7 +154,7 @@ class TW_Course_Shortcodes_Handler {
                 echo '<h3>' . get_the_title() . '</h3>';
                 
                 echo '<div class="tw-course-types">';
-                echo '<span>'.get_field('modality').'</span>';
+                echo '<span>'.get_field('kind').'</span>';
                 echo ' - ';
                 echo '<span>'.get_field('completion_time').'</span>';
                 echo '</div>';

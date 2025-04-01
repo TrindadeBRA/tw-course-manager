@@ -190,13 +190,6 @@ function tw_course_manager_import_course() {
 
     if ($course_data['level']){
 
-        // level: {
-        //     pos_esp: 'Especialização',
-        //     grd_bch: 'Bacharelado',
-        //     grd_tec: 'Tecnólogo',
-        //     grd_lic: 'Licenciatura',
-        //     }
-
         $modalidade = $course_data['level'];
         switch ($modalidade) {
             case 'pos_esp':
@@ -213,6 +206,21 @@ function tw_course_manager_import_course() {
                 break;
             default:
                 $modalidade = 'Outro';
+                break;
+        }
+    }
+
+    if ($course_data['kind']){
+        $kind = $course_data['kind'];
+        switch ($kind) {
+            case 'ead':
+                $kind = 'EAD';
+                break;
+            case 'semi':
+                $kind = 'Semi-Presencial';
+                break;
+            default:
+                $kind = 'Outro';
                 break;
         }
     }
@@ -286,7 +294,7 @@ function tw_course_manager_import_course() {
         update_field('course_name', $course_data['nomeCurso'], $post_id);
         update_field('base_course_jacad_id', $course_data['base_course_jacad_id'], $post_id);
         update_field('level', $course_data['level'], $post_id);
-        update_field('kind', $course_data['kind'], $post_id);
+        update_field('kind', $kind, $post_id);
         update_field('modality', $modalidade, $post_id);
         update_field('completion_time', $course_data['tempoConclusao'], $post_id);
         update_field('about_course', $course_data['sobreCurso'], $post_id);

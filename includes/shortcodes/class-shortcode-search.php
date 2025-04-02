@@ -159,7 +159,7 @@ class TW_Course_Search_Shortcodes_Handler {
                 echo '<h3>' . get_the_title() . '</h3>';
                 
                 echo '<div class="tw-course-types">';
-                echo '<span>'.get_field('kind').'</span>';
+                echo '<span>'.get_field('modality').' '.get_field('kind').'</span>';
                 echo ' - ';
                 echo '<span>'.get_field('completion_time').'</span>';
                 echo '</div>';

@@ -155,7 +155,7 @@ class TW_Course_Search_Shortcodes_Handler {
 
                 echo '<div class="tw-course-item">';
                 echo '<a href="'.get_permalink().'">';
-                echo '<img src="'.get_the_post_thumbnail_url(get_the_ID(), 'medium').'" alt="'.get_the_title().'" class="tw-course-image">';
+                echo '<img src="'.get_the_post_thumbnail_url(get_the_ID(), 'full').'" alt="'.get_the_title().'" class="tw-course-image">';
                 echo '<h3>' . get_the_title() . '</h3>';
                 
                 echo '<div class="tw-course-types">';
